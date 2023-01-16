@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace SystemZarzadzaniaPracownikami_v1._0
 {
-    public partial class FrmLogin : Form
+    public partial class FrmPositionList : Form
     {
-        public FrmLogin()
+        public FrmPositionList()
         {
             InitializeComponent();
-        }
-
-        private void txtUserNo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = General.isNumber(e);
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SystemZarzadzaniaPracownikami_v1._0
 {
-    public partial class FrmLogin : Form
+    public partial class FrmEmployeeList : Form
     {
-        public FrmLogin()
+        public FrmEmployeeList()
         {
             InitializeComponent();
         }
@@ -22,9 +22,9 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             e.Handled = General.isNumber(e);
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
     }
 }
