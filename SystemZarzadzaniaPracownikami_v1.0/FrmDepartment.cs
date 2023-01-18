@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+using DAL;
 
 namespace SystemZarzadzaniaPracownikami_v1._0
 {
@@ -20,6 +22,20 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (txtDepartment.Text.Length == 0)
+                MessageBox.Show("Please fill the name field");
+            else
+            {
+                Department department = new Department();
+                department.DepartmentName = txtDepartment.Text;
+                BLL.DepartmentBLL.AddDepartment(department);
+                MessageBox.Show("Department added succesfully");
+                txtDepartment.Clear();
+            }
         }
     }
 }

@@ -7,3 +7,4 @@ C:\Users\User\source\repos\SystemZarzadzaniaPracownikami_v1.0\BLL\obj\Debug\BLL.
 C:\Users\User\source\repos\SystemZarzadzaniaPracownikami_v1.0\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\User\source\repos\SystemZarzadzaniaPracownikami_v1.0\BLL\obj\Debug\BLL.dll
 C:\Users\User\source\repos\SystemZarzadzaniaPracownikami_v1.0\BLL\obj\Debug\BLL.pdb
+C:\Users\User\source\repos\SystemZarzadzaniaPracownikami_v1.0\BLL\bin\Debug\DAL.dll.config

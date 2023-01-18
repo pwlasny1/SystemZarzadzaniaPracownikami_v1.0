@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+using DAL;
 
 namespace SystemZarzadzaniaPracownikami_v1._0
 {
@@ -28,6 +30,8 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;
+            departments = DepartmentBLL.GetDepartments();
+            dataGridView1.DataSource = departments;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -36,6 +40,18 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;
+        }
+
+        List<Department> departments = new List<Department>();
+
+        private void FrmDepartmentList_Load(object sender, EventArgs e)
+        {
+            List<Department> departments= new List<Department>();
+            departments = BLL.DepartmentBLL.GetDepartments();
+            dataGridView1.DataSource= departments;
+            dataGridView1.Columns[0].HeaderText = "Department ID";
+            dataGridView1.Columns[1].HeaderText = "Department Name";
+
         }
     }
 }

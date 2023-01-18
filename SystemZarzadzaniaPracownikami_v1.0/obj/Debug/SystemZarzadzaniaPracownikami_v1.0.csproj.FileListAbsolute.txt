@@ -27,3 +27,4 @@ C:\Users\User\source\repos\SystemZarzadzaniaPracownikami_v1.0\SystemZarzadzaniaP
 C:\Users\User\source\repos\SystemZarzadzaniaPracownikami_v1.0\SystemZarzadzaniaPracownikami_v1.0\obj\Debug\SystemZarzadzaniaPracownikami_v1._0.FrmSalary.resources
 C:\Users\User\source\repos\SystemZarzadzaniaPracownikami_v1.0\SystemZarzadzaniaPracownikami_v1.0\obj\Debug\SystemZarzadzaniaPracownikami_v1._0.FrmSalaryList.resources
 C:\Users\User\source\repos\SystemZarzadzaniaPracownikami_v1.0\SystemZarzadzaniaPracownikami_v1.0\obj\Debug\SystemZarzadzaniaPracownikami_v1._0.FrmTask.resources
+C:\Users\User\source\repos\SystemZarzadzaniaPracownikami_v1.0\SystemZarzadzaniaPracownikami_v1.0\bin\Debug\DAL.dll.config
