@@ -64,6 +64,7 @@
             this.btnLogOut.Text = "LogOut";
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnPosition
             // 
@@ -77,6 +78,7 @@
             this.btnPosition.Text = "Position/Kalk";
             this.btnPosition.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPosition.UseVisualStyleBackColor = true;
+            this.btnPosition.Click += new System.EventHandler(this.btnPosition_Click);
             // 
             // btnDepartment
             // 
@@ -90,6 +92,7 @@
             this.btnDepartment.Text = "Department";
             this.btnDepartment.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDepartment.UseVisualStyleBackColor = true;
+            this.btnDepartment.Click += new System.EventHandler(this.btnDepartment_Click);
             // 
             // btnPresence
             // 
@@ -103,6 +106,7 @@
             this.btnPresence.Text = "Presence";
             this.btnPresence.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPresence.UseVisualStyleBackColor = true;
+            this.btnPresence.Click += new System.EventHandler(this.btnPresence_Click);
             // 
             // btnSalary
             // 
@@ -116,6 +120,7 @@
             this.btnSalary.Text = "Salary";
             this.btnSalary.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSalary.UseVisualStyleBackColor = true;
+            this.btnSalary.Click += new System.EventHandler(this.btnSalary_Click);
             // 
             // btnTask
             // 
@@ -129,6 +134,7 @@
             this.btnTask.Text = "Tasks";
             this.btnTask.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnTask.UseVisualStyleBackColor = true;
+            this.btnTask.Click += new System.EventHandler(this.btnTask_Click);
             // 
             // btnEmployee
             // 
@@ -142,6 +148,7 @@
             this.btnEmployee.Text = "Employees";
             this.btnEmployee.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEmployee.UseVisualStyleBackColor = true;
+            this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
             // 
             // FrmMain
             // 
@@ -158,7 +165,7 @@
             this.Controls.Add(this.btnEmployee);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SZP";
+            this.Text = "System zarzadzania pracownikami v1.0.0";
             this.ResumeLayout(false);
 
         }

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtUserNo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnCheck = new System.Windows.Forms.Button();
+            this.chAdmin = new System.Windows.Forms.CheckBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.chAdmin = new System.Windows.Forms.CheckBox();
+            this.btnCheck = new System.Windows.Forms.Button();
+            this.txtUserNo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSurname = new System.Windows.Forms.TextBox();
@@ -73,33 +73,16 @@
             this.panel1.Size = new System.Drawing.Size(583, 85);
             this.panel1.TabIndex = 0;
             // 
-            // txtUserNo
+            // chAdmin
             // 
-            this.txtUserNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtUserNo.Location = new System.Drawing.Point(81, 9);
-            this.txtUserNo.Name = "txtUserNo";
-            this.txtUserNo.Size = new System.Drawing.Size(133, 26);
-            this.txtUserNo.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(12, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "UserNo";
-            // 
-            // btnCheck
-            // 
-            this.btnCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnCheck.Location = new System.Drawing.Point(108, 41);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(75, 25);
-            this.btnCheck.TabIndex = 1;
-            this.btnCheck.Text = "Check";
-            this.btnCheck.UseVisualStyleBackColor = true;
+            this.chAdmin.AutoSize = true;
+            this.chAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.chAdmin.Location = new System.Drawing.Point(478, 12);
+            this.chAdmin.Name = "chAdmin";
+            this.chAdmin.Size = new System.Drawing.Size(84, 24);
+            this.chAdmin.TabIndex = 3;
+            this.chAdmin.Text = "isAdmin";
+            this.chAdmin.UseVisualStyleBackColor = true;
             // 
             // txtPassword
             // 
@@ -119,16 +102,33 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Password";
             // 
-            // chAdmin
+            // btnCheck
             // 
-            this.chAdmin.AutoSize = true;
-            this.chAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.chAdmin.Location = new System.Drawing.Point(478, 12);
-            this.chAdmin.Name = "chAdmin";
-            this.chAdmin.Size = new System.Drawing.Size(84, 24);
-            this.chAdmin.TabIndex = 3;
-            this.chAdmin.Text = "isAdmin";
-            this.chAdmin.UseVisualStyleBackColor = true;
+            this.btnCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnCheck.Location = new System.Drawing.Point(108, 41);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(75, 25);
+            this.btnCheck.TabIndex = 1;
+            this.btnCheck.Text = "Check";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            // 
+            // txtUserNo
+            // 
+            this.txtUserNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtUserNo.Location = new System.Drawing.Point(81, 9);
+            this.txtUserNo.Name = "txtUserNo";
+            this.txtUserNo.Size = new System.Drawing.Size(133, 26);
+            this.txtUserNo.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "UserNo";
             // 
             // txtName
             // 
@@ -305,6 +305,7 @@
             this.btnClose.TabIndex = 11;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
             // 
             // btnSave
             // 

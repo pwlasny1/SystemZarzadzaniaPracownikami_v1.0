@@ -10,16 +10,31 @@ using System.Windows.Forms;
 
 namespace SystemZarzadzaniaPracownikami_v1._0
 {
-    public partial class FrmPositionList : Form
+    public partial class FrmTaskList : Form
     {
-        public FrmPositionList()
+        public FrmTaskList()
         {
             InitializeComponent();
         }
 
+        private void txtUserNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = General.isNumber(e);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FrmTaskList_Load(object sender, EventArgs e)
+        {
+            pnForAdmin.Hide();
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            FrmPosition frm = new FrmPosition();
+            FrmTask frm = new FrmTask();
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;
@@ -27,15 +42,10 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            FrmPosition frm = new FrmPosition();
+            FrmTask frm = new FrmTask();
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

@@ -93,6 +93,7 @@
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // FrmLogin
             // 
@@ -107,7 +108,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "SZP";
             this.ResumeLayout(false);
             this.PerformLayout();
 

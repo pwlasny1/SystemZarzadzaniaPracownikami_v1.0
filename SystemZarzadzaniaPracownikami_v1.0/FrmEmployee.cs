@@ -29,7 +29,12 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
         private void txtSalary_KeyPress(object sender, KeyPressEventArgs e)
         {
+            e.Handled = General.isNumber(e);
+        }
 
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -21,5 +21,61 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         {
             Application.Exit(); 
         }
+
+        private void btnEmployee_Click(object sender, EventArgs e)
+        {
+            FrmEmployeeList frm = new FrmEmployeeList();
+            this.Hide();
+            frm.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void btnTask_Click(object sender, EventArgs e)
+        {
+            FrmTaskList frm = new FrmTaskList();
+            this.Hide();
+            frm.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void btnSalary_Click(object sender, EventArgs e)
+        {
+            FrmSalaryList frm = new FrmSalaryList();
+            this.Hide();
+            frm.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void btnPresence_Click(object sender, EventArgs e)
+        {
+            FrmPresenceList frm = new FrmPresenceList();
+            this.Hide();
+            frm.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void btnDepartment_Click(object sender, EventArgs e)
+        {
+            FrmDepartmentList   frm = new FrmDepartmentList();  
+            this.Hide();
+            frm.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void btnPosition_Click(object sender, EventArgs e)
+        {
+            FrmPositionList frm = new FrmPositionList();
+            this.Hide();
+                frm.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            FrmLogin frm = new FrmLogin();
+            this.Hide();
+            frm.ShowDialog();   
+            this.Visible = true;   
+        }
     }
 }

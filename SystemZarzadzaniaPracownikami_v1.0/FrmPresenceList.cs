@@ -10,16 +10,21 @@ using System.Windows.Forms;
 
 namespace SystemZarzadzaniaPracownikami_v1._0
 {
-    public partial class FrmPositionList : Form
+    public partial class FrmPresenceList : Form
     {
-        public FrmPositionList()
+        public FrmPresenceList()
         {
             InitializeComponent();
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            FrmPosition frm = new FrmPosition();
+            FrmPresence frm = new FrmPresence();
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;
@@ -27,15 +32,10 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            FrmPosition frm = new FrmPosition();
+            FrmPresence frm = new FrmPresence();
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

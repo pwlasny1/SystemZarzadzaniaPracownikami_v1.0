@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace SystemZarzadzaniaPracownikami_v1._0
 {
-    public partial class FrmPositionList : Form
+    public partial class FrmSalaryList : Form
     {
-        public FrmPositionList()
+        public FrmSalaryList()
         {
             InitializeComponent();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            FrmPosition frm = new FrmPosition();
+            FrmSalary frm = new FrmSalary();
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;
@@ -27,10 +27,11 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            FrmPosition frm = new FrmPosition();
+            FrmSalary frm = new FrmSalary();
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
