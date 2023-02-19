@@ -77,5 +77,18 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             frm.ShowDialog();   
             this.Visible = true;   
         }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnPermission_Click(object sender, EventArgs e)
+        {
+            FrmPermissionList frm = new FrmPermissionList();   
+            this.Hide();
+            frm.ShowDialog();
+            this.Visible = true;
+        }
     }
 }

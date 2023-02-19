@@ -42,9 +42,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(12, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 20);
+            this.label1.Size = new System.Drawing.Size(26, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "UserNo";
+            this.label1.Text = "ID";
             // 
             // txtUserNo
             // 
@@ -61,15 +61,16 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(12, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 20);
+            this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Password";
+            this.label2.Text = "Hasło";
             // 
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtPassword.Location = new System.Drawing.Point(96, 59);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(121, 26);
             this.txtPassword.TabIndex = 1;
             // 
@@ -80,7 +81,7 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(100, 35);
             this.btnExit.TabIndex = 3;
-            this.btnExit.Text = "Exit";
+            this.btnExit.Text = "Wyjście";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -91,7 +92,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(100, 35);
             this.btnLogin.TabIndex = 2;
-            this.btnLogin.Text = "Login";
+            this.btnLogin.Text = "Zaloguj";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 

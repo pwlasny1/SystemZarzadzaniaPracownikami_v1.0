@@ -79,8 +79,9 @@
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(101, 38);
             this.btnClear.TabIndex = 8;
-            this.btnClear.Text = "Clear";
+            this.btnClear.Text = "Wyczyść";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSearch
             // 
@@ -89,8 +90,9 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(101, 38);
             this.btnSearch.TabIndex = 8;
-            this.btnSearch.Text = "Search";
+            this.btnSearch.Text = "Szukaj";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // cmbPosition
             // 
@@ -107,9 +109,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.Location = new System.Drawing.Point(244, 52);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 20);
+            this.label5.Size = new System.Drawing.Size(63, 20);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Position";
+            this.label5.Text = "Pozycja";
             // 
             // cmbDepartment
             // 
@@ -119,6 +121,7 @@
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(131, 28);
             this.cmbDepartment.TabIndex = 4;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -126,32 +129,30 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.Location = new System.Drawing.Point(244, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 20);
+            this.label4.Size = new System.Drawing.Size(103, 20);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Department";
+            this.label4.Text = "Deparatment";
             // 
             // txtSurname
             // 
             this.txtSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtSurname.Location = new System.Drawing.Point(96, 79);
+            this.txtSurname.Location = new System.Drawing.Point(112, 79);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(121, 26);
             this.txtSurname.TabIndex = 1;
-            this.txtSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserNo_KeyPress);
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtName.Location = new System.Drawing.Point(96, 46);
+            this.txtName.Location = new System.Drawing.Point(112, 46);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(121, 26);
             this.txtName.TabIndex = 1;
-            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserNo_KeyPress);
             // 
             // txtUserNo
             // 
             this.txtUserNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtUserNo.Location = new System.Drawing.Point(96, 14);
+            this.txtUserNo.Location = new System.Drawing.Point(112, 14);
             this.txtUserNo.Name = "txtUserNo";
             this.txtUserNo.Size = new System.Drawing.Size(121, 26);
             this.txtUserNo.TabIndex = 1;
@@ -163,9 +164,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.Location = new System.Drawing.Point(12, 85);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 20);
+            this.label3.Size = new System.Drawing.Size(76, 20);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Surname";
+            this.label3.Text = "Nazwisko";
             // 
             // label2
             // 
@@ -173,9 +174,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(12, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.Size = new System.Drawing.Size(39, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Name";
+            this.label2.Text = "Imię";
             // 
             // label1
             // 
@@ -183,12 +184,13 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(12, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 20);
+            this.label1.Size = new System.Drawing.Size(97, 20);
             this.label1.TabIndex = 2;
-            this.label1.Text = "UserNo";
+            this.label1.Text = "Identyfikator";
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 157);
@@ -215,7 +217,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(101, 38);
             this.btnClose.TabIndex = 7;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "Zamknij";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -226,7 +228,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(101, 38);
             this.btnDelete.TabIndex = 6;
-            this.btnDelete.Text = "Delete";
+            this.btnDelete.Text = "Usuń";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnUpdate
@@ -236,7 +238,7 @@
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(101, 38);
             this.btnUpdate.TabIndex = 5;
-            this.btnUpdate.Text = "Update";
+            this.btnUpdate.Text = "Aktualizuj";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -247,7 +249,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(101, 38);
             this.btnAdd.TabIndex = 4;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Dodaj";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -262,6 +264,7 @@
             this.Name = "FrmEmployeeList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeeList";
+            this.Load += new System.EventHandler(this.FrmEmployeeList_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

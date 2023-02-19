@@ -100,21 +100,21 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnClear.Location = new System.Drawing.Point(261, 129);
+            this.btnClear.Location = new System.Drawing.Point(368, 85);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(101, 38);
             this.btnClear.TabIndex = 3;
-            this.btnClear.Text = "Clear";
+            this.btnClear.Text = "Wyczyść";
             this.btnClear.UseVisualStyleBackColor = true;
             // 
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSearch.Location = new System.Drawing.Point(261, 91);
+            this.btnSearch.Location = new System.Drawing.Point(368, 47);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(101, 38);
             this.btnSearch.TabIndex = 2;
-            this.btnSearch.Text = "Search";
+            this.btnSearch.Text = "Szukaj";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // txtDayAmount
@@ -132,9 +132,9 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label9.Location = new System.Drawing.Point(29, 103);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 20);
+            this.label9.Size = new System.Drawing.Size(67, 20);
             this.label9.TabIndex = 19;
-            this.label9.Text = "Day amount";
+            this.label9.Text = "Ilośc dni";
             // 
             // groupBox1
             // 
@@ -142,7 +142,7 @@
             this.groupBox1.Controls.Add(this.rbStartDate);
             this.groupBox1.Location = new System.Drawing.Point(261, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(139, 66);
+            this.groupBox1.Size = new System.Drawing.Size(101, 66);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             // 
@@ -151,10 +151,10 @@
             this.rbDeliveryDate.AutoSize = true;
             this.rbDeliveryDate.Location = new System.Drawing.Point(6, 42);
             this.rbDeliveryDate.Name = "rbDeliveryDate";
-            this.rbDeliveryDate.Size = new System.Drawing.Size(87, 17);
+            this.rbDeliveryDate.Size = new System.Drawing.Size(57, 17);
             this.rbDeliveryDate.TabIndex = 1;
             this.rbDeliveryDate.TabStop = true;
-            this.rbDeliveryDate.Text = "Delivery date";
+            this.rbDeliveryDate.Text = "koniec";
             this.rbDeliveryDate.UseVisualStyleBackColor = true;
             // 
             // rbStartDate
@@ -162,27 +162,35 @@
             this.rbStartDate.AutoSize = true;
             this.rbStartDate.Location = new System.Drawing.Point(7, 10);
             this.rbStartDate.Name = "rbStartDate";
-            this.rbStartDate.Size = new System.Drawing.Size(71, 17);
+            this.rbStartDate.Size = new System.Drawing.Size(45, 17);
             this.rbStartDate.TabIndex = 0;
             this.rbStartDate.TabStop = true;
-            this.rbStartDate.Text = "Start date";
+            this.rbStartDate.Text = "start";
             this.rbStartDate.UseVisualStyleBackColor = true;
             // 
             // dpFinish
             // 
+            this.dpFinish.CustomFormat = "HH:mm";
             this.dpFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dpFinish.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dpFinish.Location = new System.Drawing.Point(131, 66);
             this.dpFinish.Name = "dpFinish";
+            this.dpFinish.ShowUpDown = true;
             this.dpFinish.Size = new System.Drawing.Size(124, 26);
             this.dpFinish.TabIndex = 1;
+            this.dpFinish.Value = new System.DateTime(2023, 1, 28, 16, 0, 0, 0);
             // 
             // dpStart
             // 
+            this.dpStart.CustomFormat = "HH:mm";
             this.dpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dpStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dpStart.Location = new System.Drawing.Point(131, 35);
             this.dpStart.Name = "dpStart";
+            this.dpStart.ShowUpDown = true;
             this.dpStart.Size = new System.Drawing.Size(124, 26);
             this.dpStart.TabIndex = 0;
+            this.dpStart.Value = new System.DateTime(2023, 1, 28, 8, 0, 0, 0);
             // 
             // label8
             // 
@@ -210,9 +218,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label6.Location = new System.Drawing.Point(29, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 20);
+            this.label6.Size = new System.Drawing.Size(44, 20);
             this.label6.TabIndex = 16;
-            this.label6.Text = "Presence date";
+            this.label6.Text = "Data";
             // 
             // pnForAdmin
             // 
@@ -247,9 +255,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.Location = new System.Drawing.Point(12, 143);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 20);
+            this.label5.Size = new System.Drawing.Size(63, 20);
             this.label5.TabIndex = 21;
-            this.label5.Text = "Position";
+            this.label5.Text = "Pozycja";
             // 
             // cmbDepartment
             // 
@@ -266,9 +274,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.Location = new System.Drawing.Point(12, 111);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 20);
+            this.label4.Size = new System.Drawing.Size(103, 20);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Department";
+            this.label4.Text = "Departament";
             // 
             // txtSurname
             // 
@@ -300,9 +308,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.Location = new System.Drawing.Point(12, 74);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 20);
+            this.label3.Size = new System.Drawing.Size(76, 20);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Surname";
+            this.label3.Text = "Nazwisko";
             // 
             // label2
             // 
@@ -310,9 +318,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(12, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.Size = new System.Drawing.Size(39, 20);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Name";
+            this.label2.Text = "Imię";
             // 
             // label1
             // 
@@ -320,9 +328,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 20);
+            this.label1.Size = new System.Drawing.Size(26, 20);
             this.label1.TabIndex = 19;
-            this.label1.Text = "UserNo";
+            this.label1.Text = "ID";
             // 
             // panel2
             // 

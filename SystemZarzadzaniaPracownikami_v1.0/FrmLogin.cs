@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,9 +31,30 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            FrmMain frm = new FrmMain();
-            this.Hide();
-            frm.ShowDialog();
+            if(txtUserNo.Text.Trim() == "" || txtPassword.Text.Trim()== "")
+                MessageBox.Show("Login i hasło są wymagane!");
+            else
+            {
+                List<Employee> employeelist = EmployeeBLL.GetEmployees(Convert.ToInt32(txtUserNo.Text), txtPassword.Text);
+                if(employeelist.Count == 0)
+                {
+                    MessageBox.Show("Dany użytkownik nie istnieje");
+                }
+                else
+                {
+                    Employee employee = new Employee();
+                    employee = employeelist.First();
+                    UserStatic.EmployeeID= employee.ID;
+                    UserStatic.UserNo = employee.UserNo;
+                    UserStatic.isAdmin = employee.isAdmin;
+                    FrmMain frm = new FrmMain();
+                    this.Hide();
+                    frm.ShowDialog();
+                }
+
+            }
+
+
         }
     }
 }

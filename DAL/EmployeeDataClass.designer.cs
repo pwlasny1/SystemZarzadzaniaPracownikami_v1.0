@@ -57,6 +57,12 @@ namespace DAL
     partial void InsertTaskState(TaskState instance);
     partial void UpdateTaskState(TaskState instance);
     partial void DeleteTaskState(TaskState instance);
+    partial void InsertPermission(Permission instance);
+    partial void UpdatePermission(Permission instance);
+    partial void DeletePermission(Permission instance);
+    partial void InsertPermissionState(PermissionState instance);
+    partial void UpdatePermissionState(PermissionState instance);
+    partial void DeletePermissionState(PermissionState instance);
     #endregion
 		
 		public EmployeeDataClassDataContext() : 
@@ -158,6 +164,22 @@ namespace DAL
 			get
 			{
 				return this.GetTable<TaskState>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Permission> Permission
+		{
+			get
+			{
+				return this.GetTable<Permission>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PermissionState> PermissionState
+		{
+			get
+			{
+				return this.GetTable<PermissionState>();
 			}
 		}
 	}
@@ -1447,6 +1469,298 @@ namespace DAL
     #endregion
 		
 		public TaskState()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StateName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string StateName
+		{
+			get
+			{
+				return this._StateName;
+			}
+			set
+			{
+				if ((this._StateName != value))
+				{
+					this.OnStateNameChanging(value);
+					this.SendPropertyChanging();
+					this._StateName = value;
+					this.SendPropertyChanged("StateName");
+					this.OnStateNameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Permission")]
+	public partial class Permission : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _EmployeeID;
+		
+		private System.DateTime _PermissionStartDate;
+		
+		private System.DateTime _PermissionEndDate;
+		
+		private int _PermissionState;
+		
+		private string _PermissionExplanation;
+		
+		private int _PermissionDay;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnEmployeeIDChanging(int value);
+    partial void OnEmployeeIDChanged();
+    partial void OnPermissionStartDateChanging(System.DateTime value);
+    partial void OnPermissionStartDateChanged();
+    partial void OnPermissionEndDateChanging(System.DateTime value);
+    partial void OnPermissionEndDateChanged();
+    partial void OnPermissionStateChanging(int value);
+    partial void OnPermissionStateChanged();
+    partial void OnPermissionExplanationChanging(string value);
+    partial void OnPermissionExplanationChanged();
+    partial void OnPermissionDayChanging(int value);
+    partial void OnPermissionDayChanged();
+    #endregion
+		
+		public Permission()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL")]
+		public int EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PermissionStartDate", DbType="Date NOT NULL")]
+		public System.DateTime PermissionStartDate
+		{
+			get
+			{
+				return this._PermissionStartDate;
+			}
+			set
+			{
+				if ((this._PermissionStartDate != value))
+				{
+					this.OnPermissionStartDateChanging(value);
+					this.SendPropertyChanging();
+					this._PermissionStartDate = value;
+					this.SendPropertyChanged("PermissionStartDate");
+					this.OnPermissionStartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PermissionEndDate", DbType="Date NOT NULL")]
+		public System.DateTime PermissionEndDate
+		{
+			get
+			{
+				return this._PermissionEndDate;
+			}
+			set
+			{
+				if ((this._PermissionEndDate != value))
+				{
+					this.OnPermissionEndDateChanging(value);
+					this.SendPropertyChanging();
+					this._PermissionEndDate = value;
+					this.SendPropertyChanged("PermissionEndDate");
+					this.OnPermissionEndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PermissionState", DbType="Int NOT NULL")]
+		public int PermissionState
+		{
+			get
+			{
+				return this._PermissionState;
+			}
+			set
+			{
+				if ((this._PermissionState != value))
+				{
+					this.OnPermissionStateChanging(value);
+					this.SendPropertyChanging();
+					this._PermissionState = value;
+					this.SendPropertyChanged("PermissionState");
+					this.OnPermissionStateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PermissionExplanation", DbType="VarChar(MAX)")]
+		public string PermissionExplanation
+		{
+			get
+			{
+				return this._PermissionExplanation;
+			}
+			set
+			{
+				if ((this._PermissionExplanation != value))
+				{
+					this.OnPermissionExplanationChanging(value);
+					this.SendPropertyChanging();
+					this._PermissionExplanation = value;
+					this.SendPropertyChanged("PermissionExplanation");
+					this.OnPermissionExplanationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PermissionDay", DbType="Int NOT NULL")]
+		public int PermissionDay
+		{
+			get
+			{
+				return this._PermissionDay;
+			}
+			set
+			{
+				if ((this._PermissionDay != value))
+				{
+					this.OnPermissionDayChanging(value);
+					this.SendPropertyChanging();
+					this._PermissionDay = value;
+					this.SendPropertyChanged("PermissionDay");
+					this.OnPermissionDayChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PermissionState")]
+	public partial class PermissionState : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _StateName;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnStateNameChanging(string value);
+    partial void OnStateNameChanged();
+    #endregion
+		
+		public PermissionState()
 		{
 			OnCreated();
 		}
