@@ -30,3 +30,4 @@ C:\Users\User\source\repos\SystemZarzadzaniaPracownikami_v1.0\SystemZarzadzaniaP
 C:\Users\User\source\repos\SystemZarzadzaniaPracownikami_v1.0\SystemZarzadzaniaPracownikami_v1.0\bin\Debug\DAL.dll.config
 C:\Users\User\source\repos\SystemZarzadzaniaPracownikami_v1.0\SystemZarzadzaniaPracownikami_v1.0\obj\Debug\SystemZarzadzaniaPracownikami_v1._0.FrmPermission.resources
 C:\Users\User\source\repos\SystemZarzadzaniaPracownikami_v1.0\SystemZarzadzaniaPracownikami_v1.0\obj\Debug\SystemZarzadzaniaPracownikami_v1._0.FrmPermissionList.resources
+C:\Users\User\source\repos\SystemZarzadzaniaPracownikami_v1.0\SystemZarzadzaniaPracownikami_v1.0\obj\Debug\SystemZarzadzaniaPracownikami_v1.0.csproj.ResolveComReference.cache

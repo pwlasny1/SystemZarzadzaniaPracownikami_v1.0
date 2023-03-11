@@ -77,5 +77,17 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             details.OldDeparmentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
 
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Usunąć to stanowisko?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                PositionBLL.DeletePosition(details.ID);
+                MessageBox.Show("Usunięto stanowisko");
+                FillGrid();
+                
+            }
+        }
     }
 }

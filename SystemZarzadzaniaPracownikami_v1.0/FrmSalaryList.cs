@@ -61,6 +61,8 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         void FillAllData()
         {
             dto = SalaryBLL.GetAll();
+            if (!UserStatic.isAdmin)
+                dto.Salaries = dto.Salaries.Where(x => x.EmployeeID == UserStatic.EmployeeID).ToList();
             dataGridView1.DataSource = dto.Salaries;
             //dataGridView1.DataSource = SalaryDAO.GetSalaries();
             combofull = false;
@@ -95,10 +97,18 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             dataGridView1.Columns[7].Visible = false;
             dataGridView1.Columns[8].HeaderText = "Month";
             dataGridView1.Columns[9].HeaderText = "Year";
-            dataGridView1.Columns[10].Visible = false;
             dataGridView1.Columns[11].HeaderText = "Salary";
+            dataGridView1.Columns[10].Visible = false;
             dataGridView1.Columns[12].Visible = false;
             dataGridView1.Columns[13].Visible = false;
+            if (!UserStatic.isAdmin)
+            {
+                btnUpdate.Hide();
+                btnDelete.Hide();
+                pnForAdmin.Hide();
+                
+            }
+
             
 
         }
@@ -182,6 +192,23 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             details.OldSalary = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
 
 
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Usunąć?", "Warning", MessageBoxButtons.YesNo);
+            if(result == DialogResult.Yes)
+            {
+                SalaryBLL.DeleteSalary(details.SalaryID);
+                MessageBox.Show("Usunięto");
+                FillAllData();  
+                CleanFilters();
+            }
+        }
+
+        private void txtExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel.ExcelExport(dataGridView1);
         }
     }
 }

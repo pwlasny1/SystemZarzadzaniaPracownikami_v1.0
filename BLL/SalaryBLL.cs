@@ -36,5 +36,10 @@ namespace BLL
             if(control)
                 EmployeeDAO.UpdateEmployee(salary.EmployeeID, salary.Amount); 
         }
+
+        public static void DeleteSalary(int salaryID)
+        {
+            SalaryDAO.DeleteSalary(salaryID);
+        }
     }
 }

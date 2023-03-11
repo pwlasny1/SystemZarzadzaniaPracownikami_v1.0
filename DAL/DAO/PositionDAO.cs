@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL;
 
 namespace DAL.DAO
 {
@@ -21,6 +22,23 @@ namespace DAL.DAO
 
 				throw ex;
 			}
+        }
+
+        public static void DeletePosition(int iD)
+        {
+            try
+            {
+                Position position = db.Position.FirstOrDefault(x => x.ID == iD);
+                if (position != null)
+                {
+                    db.Position.DeleteOnSubmit(position);
+                    db.SubmitChanges();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public static List<PositionDTO> GetPositions()

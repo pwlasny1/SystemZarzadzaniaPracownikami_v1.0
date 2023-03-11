@@ -69,5 +69,19 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             details.ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);    
             details.DepartmentName = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();  
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Usunąć to stanowisko?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes) 
+            { 
+                DepartmentBLL.DeleteDepartment(details.ID);
+                MessageBox.Show("Usunięto departament");
+                departments = DepartmentBLL.GetDepartments();
+                dataGridView1.DataSource = departments;
+
+            }
+
+        }
     }
 }

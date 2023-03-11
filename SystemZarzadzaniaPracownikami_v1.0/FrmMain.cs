@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using DAL.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,10 +26,26 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
+            if (!UserStatic.isAdmin)// może jako ustawienia konta?
+            {
+                EmployeeDTO dto = EmployeeBLL.GetAll();
+                EmployeeDetailDTO details = dto.Employees.First(x => x.EmployeeID == UserStatic.EmployeeID);
+                FrmEmployee frm = new FrmEmployee();
+                frm.details = details;
+                frm.isUpdate = true;
+                this.Hide();    
+                frm.ShowDialog();
+                this.Visible = true;
+
+            }else
+            {
             FrmEmployeeList frm = new FrmEmployeeList();
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;
+
+            }
+
         }
 
         private void btnTask_Click(object sender, EventArgs e)
@@ -80,7 +98,13 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            
+            if(!UserStatic.isAdmin)
+            {
+                /*btnDepartment.Visible = false;
+                btnPosition.Visible = false;
+                btnLogOut.Location = new Point("point of form control");*/
+
+            }
         }
 
         private void btnPermission_Click(object sender, EventArgs e)

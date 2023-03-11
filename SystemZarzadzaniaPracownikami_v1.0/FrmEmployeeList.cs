@@ -158,5 +158,22 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
 
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Usunąć pracownika?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                EmployeeBLL.DeleteEmployee(details.EmployeeID);
+                MessageBox.Show("Usunięto pracownika");
+                FillAllData();
+                CleanFilter();
+            }
+        }
+
+        private void txtExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel.ExcelExport(dataGridView1);
+        }
     }
 }

@@ -74,6 +74,16 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                 txtImagePath.Text = imagepath;
                 pictureBox1.ImageLocation = imagepath;
 
+                if (!UserStatic.isAdmin)
+                {
+                    chAdmin.Enabled= false;
+                    txtUserNo.Enabled = false;
+                    txtSalary.Enabled = false;  
+                    cmbDepartment.Enabled = false;  
+                    cmbPosition.Enabled = false;    
+
+                }
+
 
             }
         }

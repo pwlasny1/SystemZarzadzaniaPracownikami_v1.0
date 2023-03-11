@@ -23,6 +23,7 @@ namespace DAL.DAO
             }
         }
 
+
         public static List<TaskDetailDTO> GetTasks()
         {
            List<TaskDetailDTO> tasklist = new List<TaskDetailDTO>();
@@ -94,6 +95,24 @@ namespace DAL.DAO
             {
 
                 throw;
+            }
+        }
+        public static void DeleteTask(int taskID)
+        {
+            try
+            {
+                Task ts = db.Task.FirstOrDefault(x => x.ID == taskID);
+                if(ts != null)
+                {
+                db.Task.DeleteOnSubmit(ts);
+                db.SubmitChanges();
+
+                }
+            }
+            catch (Exception )
+            {
+
+                throw ;
             }
         }
     }

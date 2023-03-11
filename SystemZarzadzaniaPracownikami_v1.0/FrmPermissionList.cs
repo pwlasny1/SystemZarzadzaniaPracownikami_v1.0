@@ -39,6 +39,8 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         {
             if (details.PermissionID == 0)
                 MessageBox.Show("Please select a permission from table");
+            else if(details.State ==PermissionStates.Approved || details.State == PermissionStates.Dissaproved)
+                MessageBox.Show("W tym statusie nie możesz aktualizować wniosku.");
             else
             {
                 FrmPermission frm = new FrmPermission();
@@ -58,6 +60,10 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         {
 
             dto = PermissionBLL.GetAll();
+            if (!UserStatic.isAdmin)
+            {
+                dto.Permissions = dto.Permissions.Where(x => x.EmployeeID == UserStatic.EmployeeID).ToList();  
+            }
             dataGridView1.DataSource = dto.Permissions;
             combofull = false;
             cmbDepartment.DataSource = dto.Departments;
@@ -95,6 +101,15 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             dataGridView1.Columns[11].HeaderText = "state";
             dataGridView1.Columns[13].Visible = false;
             dataGridView1.Columns[14].Visible = false;
+            if (!UserStatic.isAdmin)
+            {
+                pnForAdmin.Visible = false;
+                btnApprove.Hide();
+                btnDisapprove.Hide();
+                btnDelete.Hide();
+                btnClose.Location = new Point(776,42);
+
+            }
 
         }
 
@@ -176,6 +191,29 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             MessageBox.Show("Disapproved");
             FillAllData();
             CleanFilters();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Usunąć to zdarzenie?", "Warning", MessageBoxButtons.YesNo);
+            if(result == DialogResult.Yes)
+            {
+                if(details.State == PermissionStates.Approved)
+                    MessageBox.Show("Nie możesz usunąć zaakceptowanego urlopu");
+                else
+                {
+                    PermissionBLL.DeletePermission(details.PermissionID);
+                    MessageBox.Show("Usunięto");
+                    FillAllData(); 
+                    CleanFilters();
+                }
+            }
+
+        }
+
+        private void txtExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel.ExcelExport(dataGridView1);
         }
     }
 }

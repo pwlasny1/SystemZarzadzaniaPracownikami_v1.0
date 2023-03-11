@@ -67,6 +67,10 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         void FillAllData()
         {
             dto = TaskBLL.GetAll();
+            if (!UserStatic.isAdmin)
+            {
+                dto.Tasks = dto.Tasks.Where(x=> x.EmployeeID == UserStatic.EmployeeID).ToList();
+            }
             dataGridView1.DataSource = dto.Tasks;
             combofull = false;
             cmbDepartment.DataSource = dto.Departments;
@@ -104,7 +108,15 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             dataGridView1.Columns[11].Visible = false;
             dataGridView1.Columns[12].Visible = false;
             dataGridView1.Columns[13].Visible = false;
-            dataGridView1.Columns[14].Visible = false;         
+            dataGridView1.Columns[14].Visible = false;
+            if (!UserStatic.isAdmin)
+            {
+                btnAdd.Enabled = false; 
+                btnUpdate.Enabled = false;
+                btnDelete.Enabled = false;
+                pnForAdmin.Hide();
+
+            }
            
         }
 
@@ -182,6 +194,23 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             details.TaskEndDate = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
 
 
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Na pewno chcesz usunąć?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                TaskBLL.DeleteTask(details.TaskID);
+                MessageBox.Show("Usunięto");
+                FillAllData();
+                CleanFilters();
+            }
+        }
+
+        private void txtExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel.ExcelExport(dataGridView1);
         }
     }
 }

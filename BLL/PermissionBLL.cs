@@ -16,6 +16,7 @@ namespace BLL
             PermissionDAO.AddPermission(permission);
         }
 
+
         public static PermissionDTO GetAll()
         {
             PermissionDTO dto = new PermissionDTO();
@@ -35,6 +36,10 @@ namespace BLL
         public static void UpdatePermission(int permissionID, int approved)
         {
             PermissionDAO.UpdatePermission(permissionID,approved);
+        }
+        public static void DeletePermission(int permissionID)
+        {
+            PermissionDAO.DeletePermission(permissionID);
         }
     }
 }

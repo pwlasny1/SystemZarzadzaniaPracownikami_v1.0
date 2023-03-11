@@ -46,7 +46,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                     employee = employeelist.First();
                     UserStatic.EmployeeID= employee.ID;
                     UserStatic.UserNo = employee.UserNo;
-                    UserStatic.isAdmin = employee.isAdmin;
+                    UserStatic.isAdmin = Convert.ToBoolean(employee.isAdmin);
                     FrmMain frm = new FrmMain();
                     this.Hide();
                     frm.ShowDialog();
@@ -54,6 +54,11 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
             }
 
+
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
 
         }
     }
