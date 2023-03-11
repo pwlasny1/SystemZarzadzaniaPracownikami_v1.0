@@ -52,6 +52,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dpEnd = new System.Windows.Forms.DateTimePicker();
+            this.dpStart = new System.Windows.Forms.DateTimePicker();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cbState = new System.Windows.Forms.ComboBox();
@@ -61,8 +63,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbEndDate = new System.Windows.Forms.RadioButton();
             this.rbStartDate = new System.Windows.Forms.RadioButton();
-            this.dpStart = new System.Windows.Forms.DateTimePicker();
-            this.dpEnd = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.pnForAdmin.SuspendLayout();
@@ -80,6 +80,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(887, 235);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // btnClose
             // 
@@ -122,6 +123,7 @@
             this.btnDisapprove.TabIndex = 1;
             this.btnDisapprove.Text = "Disapprove";
             this.btnDisapprove.UseVisualStyleBackColor = true;
+            this.btnDisapprove.Click += new System.EventHandler(this.btnDisapprove_Click);
             // 
             // btnApprove
             // 
@@ -132,6 +134,7 @@
             this.btnApprove.TabIndex = 0;
             this.btnApprove.Text = "Approve";
             this.btnApprove.UseVisualStyleBackColor = true;
+            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click);
             // 
             // panel2
             // 
@@ -328,6 +331,24 @@
             this.panel3.Size = new System.Drawing.Size(543, 171);
             this.panel3.TabIndex = 1;
             // 
+            // dpEnd
+            // 
+            this.dpEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpEnd.Location = new System.Drawing.Point(131, 65);
+            this.dpEnd.Name = "dpEnd";
+            this.dpEnd.Size = new System.Drawing.Size(124, 26);
+            this.dpEnd.TabIndex = 25;
+            // 
+            // dpStart
+            // 
+            this.dpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpStart.Location = new System.Drawing.Point(131, 34);
+            this.dpStart.Name = "dpStart";
+            this.dpStart.Size = new System.Drawing.Size(124, 26);
+            this.dpStart.TabIndex = 24;
+            // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -418,24 +439,6 @@
             this.rbStartDate.TabStop = true;
             this.rbStartDate.Text = "start";
             this.rbStartDate.UseVisualStyleBackColor = true;
-            // 
-            // dpStart
-            // 
-            this.dpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpStart.Location = new System.Drawing.Point(131, 34);
-            this.dpStart.Name = "dpStart";
-            this.dpStart.Size = new System.Drawing.Size(124, 26);
-            this.dpStart.TabIndex = 24;
-            // 
-            // dpEnd
-            // 
-            this.dpEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpEnd.Location = new System.Drawing.Point(131, 65);
-            this.dpEnd.Name = "dpEnd";
-            this.dpEnd.Size = new System.Drawing.Size(124, 26);
-            this.dpEnd.TabIndex = 25;
             // 
             // FrmPermissionList
             // 

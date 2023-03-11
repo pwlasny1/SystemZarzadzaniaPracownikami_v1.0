@@ -26,5 +26,20 @@ namespace DAL.DAO
         {
             return db.Department.ToList();
         }
+
+        public static void UpdateDepartment(Department department)
+        {
+            try
+            {
+                Department dep = db.Department.First(x => x.ID == department.ID);
+                dep.DepartmentName = department.DepartmentName;
+                db.SubmitChanges();
+            }
+            catch (Exception )
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -45,10 +45,20 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            FrmTask frm = new FrmTask();
-            this.Hide();
-            frm.ShowDialog();
-            this.Visible = true;
+            if (details.TaskID == 0)
+                MessageBox.Show("Please select a task on table");
+            else
+            {
+                FrmTask frm = new FrmTask();
+                frm.isUpdate= true; 
+                frm.details = details;
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;
+                FillAllData();
+                CleanFilters();
+
+            }
         }
 
         TaskDTO dto = new TaskDTO();
@@ -74,6 +84,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             cmbTaskState.SelectedIndex = -1;
         }
 
+        TaskDetailDTO details = new TaskDetailDTO();
         private void FrmTaskList_Load(object sender, EventArgs e)
         {
 
@@ -93,10 +104,8 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             dataGridView1.Columns[11].Visible = false;
             dataGridView1.Columns[12].Visible = false;
             dataGridView1.Columns[13].Visible = false;
-            dataGridView1.Columns[14].Visible = false;
-            MessageBox.Show(UserStatic.EmployeeID.ToString() + " " + UserStatic.UserNo.ToString() + " " + UserStatic.isAdmin.ToString());
-
-            //pnForAdmin.Hide();
+            dataGridView1.Columns[14].Visible = false;         
+           
         }
 
 
@@ -157,6 +166,22 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             rbStartDate.Checked = false;
             cmbTaskState.SelectedIndex = -1;
             dataGridView1.DataSource = dto.Tasks;
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            details.Name = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            details.Surname = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            details.Title = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            details.Content = dataGridView1.Rows[e.RowIndex].Cells[13].Value.ToString();
+            details.UserNo = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
+            //details.taskStateID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[14].Value);
+            details.TaskID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[11].Value);
+            details.EmployeeID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[12].Value);
+            details.TaskStartDate = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
+            details.TaskEndDate = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
+
+
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using DAL.DTO;
 
 namespace SystemZarzadzaniaPracownikami_v1._0
 {
@@ -25,6 +26,9 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         }
 
         List<Department> departmentlist = new List<Department>();
+        public PositionDTO details = new PositionDTO();
+        public bool isUpdate = false;
+
         private void FrmPosition_Load(object sender, EventArgs e)
         {
             departmentlist = DepartmentBLL.GetDepartments();
@@ -32,6 +36,11 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             cmbDepartment.DisplayMember= "DepartmentName";
             cmbDepartment.ValueMember = "ID";
             cmbDepartment.SelectedIndex = -1;
+            if(isUpdate)
+            {
+                txtPosition.Text = details.PositionName;
+                cmbDepartment.SelectedValue= details.DepartmentID;
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -43,13 +52,31 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                 MessageBox.Show("please select department");
             }else
             {
-                Position position = new Position();
-                position.PositionName= txtPosition.Text;
-                position.DepartmentID = Convert.ToInt32(cmbDepartment.SelectedValue);
-                BLL.PositionBLL.AddPosition(position);
-                MessageBox.Show("Position was added");
-                txtPosition.Clear();
-                cmbDepartment.SelectedIndex = -1;   
+                if(!isUpdate)
+                {
+                    Position position = new Position();
+                    position.PositionName = txtPosition.Text;
+                    position.DepartmentID = Convert.ToInt32(cmbDepartment.SelectedValue);
+                    BLL.PositionBLL.AddPosition(position);
+                    MessageBox.Show("Position was added");
+                    txtPosition.Clear();
+                    cmbDepartment.SelectedIndex = -1;
+                }
+                else
+                {
+                    Position position= new Position();
+                    position.ID = details.ID;
+                    position.PositionName = txtPosition.Text;
+                    position.DepartmentID = Convert.ToInt32(cmbDepartment.SelectedValue);
+                    bool control = false;
+                    if(Convert.ToInt32(cmbDepartment.SelectedValue) != details.OldDeparmentID)
+                        control = true;
+                    PositionBLL.UpdatePosition(position, control);
+                    MessageBox.Show("Pomyślnie zaktualizowano");
+                    this.Close();
+
+
+                }
             }
         }
     }

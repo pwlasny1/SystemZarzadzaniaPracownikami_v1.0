@@ -31,10 +31,38 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             else
             {
                 Department department = new Department();
-                department.DepartmentName = txtDepartment.Text;
-                BLL.DepartmentBLL.AddDepartment(department);
-                MessageBox.Show("Department added succesfully");
-                txtDepartment.Clear();
+                if (!isUpdate)
+                {
+                    department.DepartmentName = txtDepartment.Text;
+                    BLL.DepartmentBLL.AddDepartment(department);
+                    MessageBox.Show("Department added succesfully");
+                    txtDepartment.Clear();
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Jesteś pewien?", "Warning!", MessageBoxButtons.YesNo);
+                    if (DialogResult.Yes == result) 
+                    { 
+                        department.ID = details.ID;
+                        department.DepartmentName= txtDepartment.Text;
+                        DepartmentBLL.UpdateDepartment(department);
+                        MessageBox.Show("Pomyślnie zaktualizowano");
+                        this.Close();
+
+                    }
+                }
+            }
+        }
+
+        public bool isUpdate = false;
+        public Department details = new Department();
+
+        private void FrmDepartment_Load(object sender, EventArgs e)
+        {
+            if(isUpdate)
+            {
+                txtDepartment.Text = details.DepartmentName;
+
             }
         }
     }

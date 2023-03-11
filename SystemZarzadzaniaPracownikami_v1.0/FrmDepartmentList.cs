@@ -36,13 +36,23 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            FrmDepartment frm = new FrmDepartment();
-            this.Hide();
-            frm.ShowDialog();
-            this.Visible = true;
+            if(details.ID == 0)
+                MessageBox.Show("Wybierz departament");
+            else
+            {
+                FrmDepartment frm = new FrmDepartment();
+                frm.isUpdate= true;
+                frm.details = details;
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;
+                departments = BLL.DepartmentBLL.GetDepartments();
+                dataGridView1.DataSource = departments;
+            }
         }
 
         List<Department> departments = new List<Department>();
+        public Department details = new Department();
 
         private void FrmDepartmentList_Load(object sender, EventArgs e)
         {
@@ -52,6 +62,12 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             dataGridView1.Columns[0].HeaderText = "Department ID";
             dataGridView1.Columns[1].HeaderText = "Department Name";
 
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            details.ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);    
+            details.DepartmentName = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();  
         }
     }
 }

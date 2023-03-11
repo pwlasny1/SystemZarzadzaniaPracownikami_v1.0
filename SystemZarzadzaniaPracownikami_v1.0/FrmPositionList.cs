@@ -31,10 +31,18 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            FrmPosition frm = new FrmPosition();
-            this.Hide();
-            frm.ShowDialog();
-            this.Visible = true;
+            if(details.ID == 0)
+                MessageBox.Show("Wybierz stanowisko");
+            else
+            {
+                FrmPosition frm = new FrmPosition();
+                frm.isUpdate= true;
+                frm.details = details;
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;
+                FillGrid();
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -48,13 +56,26 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             positionList = PositionBLL.GetPositions();
             dataGridView1.DataSource = positionList;
         }
+
+        PositionDTO details = new PositionDTO();
+
         private void FrmPositionList_Load(object sender, EventArgs e)
         {
             FillGrid();
             dataGridView1.Columns[1].Visible = false;
-            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[2].Visible = false;
             dataGridView1.Columns[0].HeaderText = "Department name";
-            dataGridView1.Columns[2].HeaderText = "Position name";
+            dataGridView1.Columns[3].HeaderText = "Position name";
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            details.PositionName = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            details.ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
+            details.DepartmentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
+            details.OldDeparmentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
+
         }
     }
 }

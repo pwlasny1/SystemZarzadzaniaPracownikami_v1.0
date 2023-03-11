@@ -65,7 +65,7 @@ namespace DAL.DAO
                 dto.DepartmentName = item.DepartmentName;
                 dto.Salary = item.Salary;
                 dto.ImagePath = item.ImagePath;
-                dto.BirthDay = (DateTime)item.BirthDay;
+                dto.BirthDay = item.BirthDay;
                 employeeList.Add(dto);
             }
 
@@ -89,6 +89,55 @@ namespace DAL.DAO
         public static List<Employee> GetUsers(int v)
         {
             return db.Employee.Where(x=> x.UserNo == v).ToList();
+        }
+
+        public static void UpdateEmployee(int employeeID, int amount)
+        {
+            try
+            {
+                Employee employee = db.Employee.First(x => x.ID == employeeID);
+                employee.Salary= amount;
+                db.SubmitChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static void UpdateEmployee(Employee employee)
+        {
+            try
+            {
+                Employee emp = db.Employee.First(x => x.ID == employee.ID);
+                emp.UserNo = employee.UserNo;
+                emp.Name= employee.Name;
+                emp.Surname= employee.Surname;  
+                emp.Password = employee.Password;
+                emp.isAdmin = employee.isAdmin;
+                emp.BirthDay = employee.BirthDay;
+                emp.Adress = employee.Adress;
+                emp.DepartmentID = employee.DepartmentID;
+                emp.PositionID= employee.PositionID;
+                emp.Salary = employee.Salary;
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public static void UpdateEmployee(Position position)
+        {
+            List<Employee> list = db.Employee.Where(x=> x.PositionID == position.ID).ToList();
+            foreach (var item in list)
+            {
+                item.DepartmentID = position.DepartmentID;
+            }
+            db.SubmitChanges();
         }
     }
 }
