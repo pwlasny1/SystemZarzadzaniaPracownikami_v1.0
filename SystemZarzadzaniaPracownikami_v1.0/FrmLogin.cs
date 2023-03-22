@@ -38,7 +38,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                 List<Employee> employeelist = EmployeeBLL.GetEmployees(Convert.ToInt32(txtUserNo.Text), txtPassword.Text);
                 if(employeelist.Count == 0)
                 {
-                    MessageBox.Show("Dany użytkownik nie istnieje");
+                    MessageBox.Show("Dany użytkownik nie istnieje, sprawdź dane");
                 }
                 else
                 {

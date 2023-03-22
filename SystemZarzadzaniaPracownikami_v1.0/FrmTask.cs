@@ -35,9 +35,9 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             dto = TaskBLL.GetAll();
             dataGridView1.DataSource= dto.Employees;
             dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].HeaderText = "UserNo";
-            dataGridView1.Columns[2].HeaderText = "Name";
-            dataGridView1.Columns[3].HeaderText = "Surname";
+            dataGridView1.Columns[1].HeaderText = "ID pracownika";
+            dataGridView1.Columns[2].HeaderText = "Imię";
+            dataGridView1.Columns[3].HeaderText = "Nazwisko";
             dataGridView1.Columns[4].Visible = false;
             dataGridView1.Columns[5].Visible = false;
             dataGridView1.Columns[6].Visible = false;
@@ -66,7 +66,8 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             cmbTaskState.SelectedIndex = -1;
             if(isUpdate)
             {
-               
+                label9.Visible = true;
+                cmbTaskState.Visible = true;
                 txtName.Text = details.Name;
                 txtUserNo.Text = details.UserNo.ToString();
                 txtSurname.Text = details.Surname;
@@ -115,11 +116,11 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (task.EmployeeID == 0)
-                MessageBox.Show("Please select an employee");
+                MessageBox.Show("Wybierz pracownika");
             else if (txtTitle.Text.Trim() == "")
-                MessageBox.Show("Title is empty");
+                MessageBox.Show("Tytuł nie może być pusty");
             else if (txtContent.Text.Trim() == "")
-                MessageBox.Show("Content is empty");
+                MessageBox.Show("Opis nie może być pusty");
             else
             {
                 if (!isUpdate)
@@ -129,7 +130,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                     task.TaskStartDate = DateTime.Today;
                     task.TaskState = 1;
                     TaskBLL.AddTask(task);
-                    MessageBox.Show("Task added");
+                    MessageBox.Show("Dodano zadanie");
 
                     txtTitle.Clear();
                     txtContent.Clear();
@@ -138,25 +139,25 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                 }
                 else if (isUpdate)
                 {
-                    DialogResult result = MessageBox.Show("Are you sure?", "Warning!!", MessageBoxButtons.YesNo);
+                    DialogResult result = MessageBox.Show("Jesteś pewien?", "Warning!!", MessageBoxButtons.YesNo);
                     if(result == DialogResult.Yes)
                     {
                         DAL.Task update = new DAL.Task();
                         update.ID = details.TaskID;
                         if(Convert.ToInt32(txtUserNo.Text) != details.UserNo)
-                        {
+                        
                             update.EmployeeID= details.EmployeeID;
-                        }
+                        
                         else
-                        {
+                        
                             update.EmployeeID = details.EmployeeID;
                             update.TaskTitle = txtTitle.Text;
                             update.TaskContent = txtContent.Text;
                             update.TaskState = Convert.ToInt32(cmbTaskState.SelectedValue);
                             TaskBLL.UpdateTask(update);
-                            MessageBox.Show("Task updated");
+                            MessageBox.Show("Zaktualizowano zadanie");
                             this.Close();
-                        }
+                        
                     }
                 }
 

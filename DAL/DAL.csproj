@@ -47,6 +47,7 @@
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\PermissionDAO.cs" />
     <Compile Include="DAO\PositionDAO.cs" />
+    <Compile Include="DAO\PresenceDAO.cs" />
     <Compile Include="DAO\SalaryDAO.cs" />
     <Compile Include="DAO\TaskDAO.cs" />
     <Compile Include="DTO\EmployeeDetailDTO.cs" />
@@ -55,10 +56,13 @@
     <Compile Include="DTO\PermissionDTO.cs" />
     <Compile Include="DTO\PermissionStates.cs" />
     <Compile Include="DTO\PositionDTO.cs" />
+    <Compile Include="DTO\PresenceDetailDTO.cs" />
+    <Compile Include="DTO\PresenceDTO.cs" />
     <Compile Include="DTO\SalaryDetailDTO.cs" />
     <Compile Include="DTO\SalaryDTO.cs" />
     <Compile Include="DTO\TaskDetailDTO.cs" />
     <Compile Include="DTO\TaskDTO.cs" />
+    <Compile Include="DTO\TaskStates.cs" />
     <Compile Include="EmployeeDataClass.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

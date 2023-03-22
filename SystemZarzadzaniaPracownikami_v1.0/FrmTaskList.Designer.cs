@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtExcel = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -61,7 +62,6 @@
             this.btnApprove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -78,7 +78,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1061, 239);
+            this.panel1.Size = new System.Drawing.Size(1061, 243);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -98,8 +98,20 @@
             this.panel3.Location = new System.Drawing.Point(529, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(532, 239);
+            this.panel3.Size = new System.Drawing.Size(532, 243);
             this.panel3.TabIndex = 1;
+            // 
+            // txtExcel
+            // 
+            this.txtExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtExcel.Location = new System.Drawing.Point(162, 178);
+            this.txtExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.txtExcel.Name = "txtExcel";
+            this.txtExcel.Size = new System.Drawing.Size(173, 35);
+            this.txtExcel.TabIndex = 12;
+            this.txtExcel.Text = "Export Excel";
+            this.txtExcel.UseVisualStyleBackColor = true;
+            this.txtExcel.Click += new System.EventHandler(this.txtExcel_Click);
             // 
             // btnClear
             // 
@@ -163,6 +175,7 @@
             // dpFinish
             // 
             this.dpFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dpFinish.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFinish.Location = new System.Drawing.Point(169, 100);
             this.dpFinish.Margin = new System.Windows.Forms.Padding(4);
             this.dpFinish.Name = "dpFinish";
@@ -182,6 +195,7 @@
             // dpStart
             // 
             this.dpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpStart.Location = new System.Drawing.Point(169, 62);
             this.dpStart.Margin = new System.Windows.Forms.Padding(4);
             this.dpStart.Name = "dpStart";
@@ -248,7 +262,7 @@
             this.pnForAdmin.Location = new System.Drawing.Point(0, 0);
             this.pnForAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.pnForAdmin.Name = "pnForAdmin";
-            this.pnForAdmin.Size = new System.Drawing.Size(529, 239);
+            this.pnForAdmin.Size = new System.Drawing.Size(529, 243);
             this.pnForAdmin.TabIndex = 0;
             // 
             // cmbPosition
@@ -364,10 +378,10 @@
             this.panel2.Controls.Add(this.btnApprove);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 515);
+            this.panel2.Location = new System.Drawing.Point(0, 484);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1061, 123);
+            this.panel2.Size = new System.Drawing.Size(1061, 154);
             this.panel2.TabIndex = 1;
             // 
             // btnClose
@@ -427,6 +441,7 @@
             this.btnApprove.TabIndex = 0;
             this.btnApprove.Text = "Zatwierdź";
             this.btnApprove.UseVisualStyleBackColor = true;
+            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click);
             // 
             // btnAdd
             // 
@@ -444,25 +459,14 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 239);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 243);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1061, 276);
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(1061, 241);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
-            // 
-            // txtExcel
-            // 
-            this.txtExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtExcel.Location = new System.Drawing.Point(162, 178);
-            this.txtExcel.Margin = new System.Windows.Forms.Padding(4);
-            this.txtExcel.Name = "txtExcel";
-            this.txtExcel.Size = new System.Drawing.Size(173, 35);
-            this.txtExcel.TabIndex = 12;
-            this.txtExcel.Text = "Export to Excel";
-            this.txtExcel.UseVisualStyleBackColor = true;
-            this.txtExcel.Click += new System.EventHandler(this.txtExcel_Click);
             // 
             // FrmTaskList
             // 
@@ -475,7 +479,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmTaskList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Umowy";
+            this.Text = "Zadania";
             this.Load += new System.EventHandler(this.FrmTaskList_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -510,7 +514,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rbDeliveryDate;
         private System.Windows.Forms.RadioButton rbStartDate;
         private System.Windows.Forms.DateTimePicker dpFinish;
         private System.Windows.Forms.ComboBox cmbTaskState;
@@ -526,5 +529,6 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button txtExcel;
+        private System.Windows.Forms.RadioButton rbDeliveryDate;
     }
 }

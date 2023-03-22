@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtExcel = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -63,7 +64,6 @@
             this.szpdbDataSet = new SystemZarzadzaniaPracownikami_v1._0.szpdbDataSet();
             this.salaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.salaryTableAdapter = new SystemZarzadzaniaPracownikami_v1._0.szpdbDataSetTableAdapters.SalaryTableAdapter();
-            this.txtExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -103,6 +103,18 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(618, 231);
             this.panel3.TabIndex = 1;
+            // 
+            // txtExcel
+            // 
+            this.txtExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtExcel.Location = new System.Drawing.Point(356, 166);
+            this.txtExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.txtExcel.Name = "txtExcel";
+            this.txtExcel.Size = new System.Drawing.Size(173, 35);
+            this.txtExcel.TabIndex = 33;
+            this.txtExcel.Text = "Export to Excel";
+            this.txtExcel.UseVisualStyleBackColor = true;
+            this.txtExcel.Click += new System.EventHandler(this.txtExcel_Click);
             // 
             // btnClear
             // 
@@ -448,18 +460,6 @@
             // 
             this.salaryTableAdapter.ClearBeforeFill = true;
             // 
-            // txtExcel
-            // 
-            this.txtExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtExcel.Location = new System.Drawing.Point(356, 166);
-            this.txtExcel.Margin = new System.Windows.Forms.Padding(4);
-            this.txtExcel.Name = "txtExcel";
-            this.txtExcel.Size = new System.Drawing.Size(173, 35);
-            this.txtExcel.TabIndex = 33;
-            this.txtExcel.Text = "Export to Excel";
-            this.txtExcel.UseVisualStyleBackColor = true;
-            this.txtExcel.Click += new System.EventHandler(this.txtExcel_Click);
-            // 
             // FrmSalaryList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -471,7 +471,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmSalaryList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Salary List";
+            this.Text = "Umowy/Wynagrodzenia";
             this.Load += new System.EventHandler(this.FrmSalaryList_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

@@ -16,10 +16,10 @@ namespace DAL.DAO
                 db.Task.InsertOnSubmit(task);
                 db.SubmitChanges();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 
@@ -113,6 +113,29 @@ namespace DAL.DAO
             {
 
                 throw ;
+            }
+        }
+
+        public static void ApproveTask(int taskID, bool isAdmin)
+        {
+            try
+            {
+                Task ts = db.Task.First(x => x.ID == taskID);
+                if(isAdmin)
+                {
+                    ts.TaskState = TaskStates.Approved;
+                } else
+                {
+                    ts.TaskState = TaskStates.Delivered;
+                    ts.TaskEndDate= DateTime.Today;
+                    db.SubmitChanges();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

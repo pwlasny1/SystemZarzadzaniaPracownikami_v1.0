@@ -64,6 +64,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         TaskDTO dto = new TaskDTO();
         private bool combofull = false;
 
+
         void FillAllData()
         {
             dto = TaskBLL.GetAll();
@@ -94,13 +95,13 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
             FillAllData();
            
-            dataGridView1.Columns[0].HeaderText = "Task Title";
-            dataGridView1.Columns[1].HeaderText = "User No";
-            dataGridView1.Columns[2].HeaderText = "Name";
-            dataGridView1.Columns[3].HeaderText = "Surname";
-            dataGridView1.Columns[4].HeaderText = "Start date";
-            dataGridView1.Columns[5].HeaderText = "End date";
-            dataGridView1.Columns[6].HeaderText = "Task state";
+            dataGridView1.Columns[0].HeaderText = "Tytuł";
+            dataGridView1.Columns[1].HeaderText = "Identyfikator";
+            dataGridView1.Columns[2].HeaderText = "Imię";
+            dataGridView1.Columns[3].HeaderText = "Nazwisko";
+            dataGridView1.Columns[4].HeaderText = "Data nadania";
+            dataGridView1.Columns[5].HeaderText = "Data ukończenia";
+            dataGridView1.Columns[6].HeaderText = "Status";
             dataGridView1.Columns[7].Visible = false;
             dataGridView1.Columns[8].Visible = false;
             dataGridView1.Columns[9].Visible = false;
@@ -115,6 +116,8 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                 btnUpdate.Enabled = false;
                 btnDelete.Enabled = false;
                 pnForAdmin.Hide();
+                btnApprove.Text = "Wykonano";
+
 
             }
            
@@ -187,7 +190,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             details.Title = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             details.Content = dataGridView1.Rows[e.RowIndex].Cells[13].Value.ToString();
             details.UserNo = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
-            //details.taskStateID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[14].Value);
+           // details.taskStateID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[14].Value);
             details.TaskID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[11].Value);
             details.EmployeeID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[12].Value);
             details.TaskStartDate = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
@@ -211,6 +214,25 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         private void txtExcel_Click(object sender, EventArgs e)
         {
             ExportToExcel.ExcelExport(dataGridView1);
+        }
+
+        private void btnApprove_Click(object sender, EventArgs e)
+        {
+            if(UserStatic.isAdmin && details.taskStateID == TaskStates.OnEmployee && details.EmployeeID != UserStatic.EmployeeID )
+                MessageBox.Show("Status zadania musi być jako wykonany zanim zaakceptujesz zadanie");
+            else if(UserStatic.isAdmin && details.taskStateID == TaskStates.Approved)
+                MessageBox.Show("Zadanie zostało już zaakceptowane jako gotowe");
+            else if(!UserStatic.isAdmin && details.taskStateID == TaskStates.Delivered)
+                MessageBox.Show("Zadanie zostało już wykonane");
+            else if(!UserStatic.isAdmin && details.taskStateID == TaskStates.Approved)
+                MessageBox.Show("Zadanie zostało już zaakceptowane jako gotowe");
+            else
+            {
+                TaskBLL.ApproveTask(details.TaskID, UserStatic.isAdmin);
+                MessageBox.Show("Zaktualizowano status zadania");
+                FillAllData();
+                CleanFilters();  
+            }
         }
     }
 }

@@ -44,7 +44,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if(details.EmployeeID==0)
-                MessageBox.Show("Please select employee");
+                MessageBox.Show("Wybierz pracownika!");
             else
             {
                 FrmEmployee frm = new FrmEmployee();
@@ -66,14 +66,14 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             dto = EmployeeBLL.GetAll();
             dataGridView1.DataSource = dto.Employees;
             dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].HeaderText = "UserNo";
-            dataGridView1.Columns[2].HeaderText = "Name";
-            dataGridView1.Columns[3].HeaderText = "Surname";
-            dataGridView1.Columns[4].HeaderText = "Department";
-            dataGridView1.Columns[5].HeaderText = "Position";
+            dataGridView1.Columns[1].HeaderText = "ID pracownika";
+            dataGridView1.Columns[2].HeaderText = "Imię";
+            dataGridView1.Columns[3].HeaderText = "Nazwisko";
+            dataGridView1.Columns[4].HeaderText = "Departament";
+            dataGridView1.Columns[5].HeaderText = "Stanowisko";
             dataGridView1.Columns[6].Visible = false;
             dataGridView1.Columns[7].Visible = false;
-            dataGridView1.Columns[8].HeaderText = "Salary";
+            dataGridView1.Columns[8].HeaderText = "Wynagrodzenie";
             dataGridView1.Columns[9].Visible = false;
             dataGridView1.Columns[10].Visible = false;
             dataGridView1.Columns[11].Visible = false;
@@ -149,7 +149,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             details.ImagePath = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
             details.Adress = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();
             details.isAdmin = Convert.ToBoolean(dataGridView1.Rows[e.RowIndex].Cells[9].Value);
-            //details.BirthDay = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[13].Value);
+        //    details.BirthDay = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[13].Value);
             details.UserNo = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
             details.DepartmentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[6].Value);
             details.PositionID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value);

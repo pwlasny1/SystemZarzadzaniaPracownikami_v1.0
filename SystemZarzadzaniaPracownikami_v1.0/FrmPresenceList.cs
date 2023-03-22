@@ -37,5 +37,10 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             frm.ShowDialog();
             this.Visible = true;
         }
+
+        private void FrmPresenceList_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

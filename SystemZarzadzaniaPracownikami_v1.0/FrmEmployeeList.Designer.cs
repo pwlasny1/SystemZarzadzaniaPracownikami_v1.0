@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtExcel = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cmbPosition = new System.Windows.Forms.ComboBox();
@@ -47,7 +48,6 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -74,6 +74,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(989, 193);
             this.panel1.TabIndex = 0;
+            // 
+            // txtExcel
+            // 
+            this.txtExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtExcel.Location = new System.Drawing.Point(459, 114);
+            this.txtExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.txtExcel.Name = "txtExcel";
+            this.txtExcel.Size = new System.Drawing.Size(185, 50);
+            this.txtExcel.TabIndex = 8;
+            this.txtExcel.Text = "Export Excel";
+            this.txtExcel.UseVisualStyleBackColor = true;
+            this.txtExcel.Click += new System.EventHandler(this.txtExcel_Click);
             // 
             // btnClear
             // 
@@ -106,7 +118,7 @@
             this.cmbPosition.Location = new System.Drawing.Point(459, 54);
             this.cmbPosition.Margin = new System.Windows.Forms.Padding(4);
             this.cmbPosition.Name = "cmbPosition";
-            this.cmbPosition.Size = new System.Drawing.Size(173, 28);
+            this.cmbPosition.Size = new System.Drawing.Size(173, 33);
             this.cmbPosition.TabIndex = 6;
             // 
             // label5
@@ -116,7 +128,7 @@
             this.label5.Location = new System.Drawing.Point(325, 64);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 20);
+            this.label5.Size = new System.Drawing.Size(81, 25);
             this.label5.TabIndex = 5;
             this.label5.Text = "Pozycja";
             // 
@@ -127,7 +139,7 @@
             this.cmbDepartment.Location = new System.Drawing.Point(459, 15);
             this.cmbDepartment.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(173, 28);
+            this.cmbDepartment.Size = new System.Drawing.Size(173, 33);
             this.cmbDepartment.TabIndex = 4;
             this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
@@ -138,9 +150,9 @@
             this.label4.Location = new System.Drawing.Point(325, 25);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 20);
+            this.label4.Size = new System.Drawing.Size(169, 31);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Deparatment";
+            this.label4.Text = "Deparatament";
             // 
             // txtSurname
             // 
@@ -148,7 +160,7 @@
             this.txtSurname.Location = new System.Drawing.Point(149, 97);
             this.txtSurname.Margin = new System.Windows.Forms.Padding(4);
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(160, 26);
+            this.txtSurname.Size = new System.Drawing.Size(160, 30);
             this.txtSurname.TabIndex = 1;
             // 
             // txtName
@@ -157,7 +169,7 @@
             this.txtName.Location = new System.Drawing.Point(149, 57);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(160, 26);
+            this.txtName.Size = new System.Drawing.Size(160, 30);
             this.txtName.TabIndex = 1;
             // 
             // txtUserNo
@@ -166,7 +178,7 @@
             this.txtUserNo.Location = new System.Drawing.Point(149, 17);
             this.txtUserNo.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserNo.Name = "txtUserNo";
-            this.txtUserNo.Size = new System.Drawing.Size(160, 26);
+            this.txtUserNo.Size = new System.Drawing.Size(160, 30);
             this.txtUserNo.TabIndex = 1;
             this.txtUserNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserNo_KeyPress);
             // 
@@ -177,7 +189,7 @@
             this.label3.Location = new System.Drawing.Point(16, 105);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 20);
+            this.label3.Size = new System.Drawing.Size(96, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Nazwisko";
             // 
@@ -188,7 +200,7 @@
             this.label2.Location = new System.Drawing.Point(16, 64);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 20);
+            this.label2.Size = new System.Drawing.Size(48, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Imię";
             // 
@@ -199,7 +211,7 @@
             this.label1.Location = new System.Drawing.Point(16, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 20);
+            this.label1.Size = new System.Drawing.Size(117, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Identyfikator";
             // 
@@ -212,6 +224,7 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(989, 484);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
@@ -277,18 +290,6 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // txtExcel
-            // 
-            this.txtExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtExcel.Location = new System.Drawing.Point(459, 93);
-            this.txtExcel.Margin = new System.Windows.Forms.Padding(4);
-            this.txtExcel.Name = "txtExcel";
-            this.txtExcel.Size = new System.Drawing.Size(173, 35);
-            this.txtExcel.TabIndex = 8;
-            this.txtExcel.Text = "Export to Excel";
-            this.txtExcel.UseVisualStyleBackColor = true;
-            this.txtExcel.Click += new System.EventHandler(this.txtExcel_Click);
-            // 
             // FrmEmployeeList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -300,7 +301,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmEmployeeList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EmployeeList";
+            this.Text = "Lista pracowników";
             this.Load += new System.EventHandler(this.FrmEmployeeList_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

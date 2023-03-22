@@ -40,9 +40,9 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             {
                 dataGridView1.DataSource = dto.Employees;
                 dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].HeaderText = "UserNo";
-                dataGridView1.Columns[2].HeaderText = "Name";
-                dataGridView1.Columns[3].HeaderText = "Surname";
+                dataGridView1.Columns[1].HeaderText = "ID Użytkownika";
+                dataGridView1.Columns[2].HeaderText = "Imię";
+                dataGridView1.Columns[3].HeaderText = "Nazwisko";
                 dataGridView1.Columns[4].Visible = false;
                 dataGridView1.Columns[5].Visible = false;
                 dataGridView1.Columns[6].Visible = false;
@@ -118,7 +118,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                 }
                 else
                 {
-                    DialogResult result = MessageBox.Show("Are you sure?", "title", MessageBoxButtons.YesNo);
+                    DialogResult result = MessageBox.Show("Jesteś pewien?", "title", MessageBoxButtons.YesNo);
                     if(DialogResult.Yes == result)
                     {
                         Salary salary = new Salary();
@@ -133,7 +133,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                             control = true;
 
                         SalaryBLL.UpdateSalary(salary,control);
-                        MessageBox.Show("Salary updated");
+                        MessageBox.Show("Umowa zaktualizowana");
                         this.Close();   
 
                     }

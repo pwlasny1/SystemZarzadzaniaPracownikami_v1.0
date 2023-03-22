@@ -106,30 +106,30 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             {
                 pictureBox1.Load(openFileDialog1.FileName);
                 txtImagePath.Text = openFileDialog1.FileName;
-                
-                fileName +=  openFileDialog1.SafeFileName;
+                string Unique = Guid.NewGuid().ToString();  
+                fileName +=  Unique + openFileDialog1.SafeFileName;
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (txtUserNo.Text.Trim() == "")
-                MessageBox.Show("User no is empty");
+                MessageBox.Show("ID pracownika nie może być puste");
             
             else if (txtPassword.Text.Trim() == "")
-                MessageBox.Show("Password is empty");
+                MessageBox.Show("Hasło nie może być puste");
             else if (txtName.Name.Trim() == "")
-                MessageBox.Show("Name is empty");
+                MessageBox.Show("Imię nie może być puste");
             else if (txtSurname.Text.Trim() == "")
-                MessageBox.Show("Surname is empty");
+                MessageBox.Show("Nazwisko nie może być puste");
             else if (txtImagePath.Text.Trim() == "")
-                MessageBox.Show("Surname is empty");
+                MessageBox.Show("Dodaj zdjęcie");
             else if (txtSalary.Text.Trim() == "")
-                MessageBox.Show("Salary is empty");
+                MessageBox.Show("Wynagrodzenie nie może być puste");
             else if (cmbDepartment.SelectedIndex == -1)
-                MessageBox.Show("Deparment is empty");
+                MessageBox.Show("Departament nie może być pusty");
             else if (cmbPosition.SelectedIndex == -1)
-                MessageBox.Show("Position is empty");
+                MessageBox.Show("Pozycja nie może być pusta");
             
             
             else
@@ -137,7 +137,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                 if (!isUpdate)
                 {
                     if (!EmployeeBLL.isUnique(Convert.ToInt32(txtUserNo.Text)))
-                        MessageBox.Show("This UserNo is used by another employee");
+                        MessageBox.Show("ID pracownika jest już używane");
                     else
                     {
                         Employee employee = new Employee();
@@ -154,7 +154,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                         employee.ImagePath = fileName;
                         File.Copy(txtImagePath.Text, @"images\\" + fileName);
                         EmployeeBLL.AddEmployee(employee);
-                        MessageBox.Show("Employee was added");
+                        MessageBox.Show("Pracownik został dodany!");
                         txtUserNo.Clear();
                         txtPassword.Clear();
                         chAdmin.Checked = false;
