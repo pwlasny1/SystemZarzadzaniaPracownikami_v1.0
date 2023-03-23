@@ -38,7 +38,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (details.PermissionID == 0)
-                MessageBox.Show("Please select a permission from table");
+                MessageBox.Show("Wybierz urlop z tabeli");
             else if(details.State ==PermissionStates.Approved || details.State == PermissionStates.Dissaproved)
                 MessageBox.Show("W tym statusie nie możesz aktualizować wniosku.");
             else
@@ -87,18 +87,18 @@ namespace SystemZarzadzaniaPracownikami_v1._0
            
 
             dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].HeaderText = "UserNo";
-            dataGridView1.Columns[2].HeaderText = "Name";
-            dataGridView1.Columns[3].HeaderText = "Surname";
+            dataGridView1.Columns[1].HeaderText = "ID pracownika";
+            dataGridView1.Columns[2].HeaderText = "Imię";
+            dataGridView1.Columns[3].HeaderText = "Nazwisko";
             dataGridView1.Columns[4].Visible = false;
             dataGridView1.Columns[5].Visible = false;
             dataGridView1.Columns[6].Visible = false;
             dataGridView1.Columns[7].Visible = false;
-            dataGridView1.Columns[8].HeaderText = "Start date";
-            dataGridView1.Columns[9].HeaderText = "End date";
-            dataGridView1.Columns[10].HeaderText = "Day amount";
+            dataGridView1.Columns[8].HeaderText = "Początek";
+            dataGridView1.Columns[9].HeaderText = "Koniec";
+            dataGridView1.Columns[10].HeaderText = "Ilość dni";
             dataGridView1.Columns[12].Visible = false;
-            dataGridView1.Columns[11].HeaderText = "state";
+            dataGridView1.Columns[11].HeaderText = "Status wniosku";
             dataGridView1.Columns[13].Visible = false;
             dataGridView1.Columns[14].Visible = false;
             if (!UserStatic.isAdmin)
@@ -179,7 +179,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         private void btnApprove_Click(object sender, EventArgs e)
         {
             PermissionBLL.UpdatePermission(details.PermissionID, PermissionStates.Approved);
-            MessageBox.Show("Approved");
+            MessageBox.Show("Zaakceptowano");
             FillAllData();
             CleanFilters();
 
@@ -188,7 +188,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         private void btnDisapprove_Click(object sender, EventArgs e)
         {
             PermissionBLL.UpdatePermission(details.PermissionID, PermissionStates.Dissaproved);
-            MessageBox.Show("Disapproved");
+            MessageBox.Show("Odrzucono");
             FillAllData();
             CleanFilters();
         }

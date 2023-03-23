@@ -27,7 +27,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (txtDepartment.Text.Length == 0)
-                MessageBox.Show("Please fill the name field");
+                MessageBox.Show("Uzupełnij nazwę departamentu!");
             else
             {
                 Department department = new Department();
@@ -35,7 +35,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                 {
                     department.DepartmentName = txtDepartment.Text;
                     BLL.DepartmentBLL.AddDepartment(department);
-                    MessageBox.Show("Department added succesfully");
+                    MessageBox.Show("Departament dodany pomyślnie!");
                     txtDepartment.Clear();
                 }
                 else

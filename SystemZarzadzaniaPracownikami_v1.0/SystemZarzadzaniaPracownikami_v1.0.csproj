@@ -129,6 +129,12 @@
     <Compile Include="FrmSalary.Designer.cs">
       <DependentUpon>FrmSalary.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSalaryCalc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSalaryCalc.Designer.cs">
+      <DependentUpon>FrmSalaryCalc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSalaryList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSalary.resx">
       <DependentUpon>FrmSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSalaryCalc.resx">
+      <DependentUpon>FrmSalaryCalc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSalaryList.resx">
       <DependentUpon>FrmSalaryList.cs</DependentUpon>

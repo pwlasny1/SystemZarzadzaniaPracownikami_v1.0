@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DAL.DTO;
 using BLL;
 using DAL;
+using Task = DAL.Task;
 
 namespace SystemZarzadzaniaPracownikami_v1._0
 {
@@ -112,7 +113,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             }
         }
 
-        DAL.Task task = new DAL.Task();
+        Task task = new Task();
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (task.EmployeeID == 0)
@@ -134,7 +135,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
                     txtTitle.Clear();
                     txtContent.Clear();
-                    task = new DAL.Task();
+                    task = new Task();
 
                 }
                 else if (isUpdate)
@@ -142,7 +143,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                     DialogResult result = MessageBox.Show("Jesteś pewien?", "Warning!!", MessageBoxButtons.YesNo);
                     if(result == DialogResult.Yes)
                     {
-                        DAL.Task update = new DAL.Task();
+                        Task update = new Task();
                         update.ID = details.TaskID;
                         if(Convert.ToInt32(txtUserNo.Text) != details.UserNo)
                         

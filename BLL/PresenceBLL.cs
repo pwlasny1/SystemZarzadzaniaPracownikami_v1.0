@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL;
 using DAL.DAO;
+using DAL.DTO;
 
 namespace BLL
 {
@@ -14,6 +14,15 @@ namespace BLL
         public static void AddPresence(Presence presence)
         {
             PresenceDAO.AddPresence(presence);
+        }
+
+        public static PresenceDTO GetAll()
+        {
+            PresenceDTO dto = new PresenceDTO();    
+            dto.Departments = DepartmentDAO.GetDepartments();
+            dto.Positions= PositionDAO.GetPositions();
+            dto.Presences = PresenceDAO.GetPresences();
+            return dto;
         }
     }
 }

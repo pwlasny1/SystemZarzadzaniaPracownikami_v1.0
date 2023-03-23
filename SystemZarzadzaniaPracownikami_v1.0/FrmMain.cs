@@ -114,5 +114,13 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             frm.ShowDialog();
             this.Visible = true;
         }
+
+        private void btnCalculator_Click(object sender, EventArgs e)
+        {
+            FrmSalaryCalc frm = new FrmSalaryCalc();    
+            this.Hide();
+            frm.ShowDialog();
+            this.Visible = true;    
+        }
     }
 }

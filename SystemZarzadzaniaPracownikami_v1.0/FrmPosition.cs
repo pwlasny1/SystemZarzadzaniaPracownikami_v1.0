@@ -46,10 +46,10 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         private void btnSave_Click(object sender, EventArgs e)
         {
             if(txtPosition.Text.Length == 0) {
-                MessageBox.Show("Please fill the position name");
+                MessageBox.Show("Uzupełnij nazwę stanowiska");
             }else if(cmbDepartment.SelectedIndex == -1)
             {
-                MessageBox.Show("please select department");
+                MessageBox.Show("Wybierz departament dla stanowiska");
             }else
             {
                 if(!isUpdate)
@@ -58,7 +58,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                     position.PositionName = txtPosition.Text;
                     position.DepartmentID = Convert.ToInt32(cmbDepartment.SelectedValue);
                     BLL.PositionBLL.AddPosition(position);
-                    MessageBox.Show("Position was added");
+                    MessageBox.Show("Stanowisko zostało dodane");
                     txtPosition.Clear();
                     cmbDepartment.SelectedIndex = -1;
                 }
