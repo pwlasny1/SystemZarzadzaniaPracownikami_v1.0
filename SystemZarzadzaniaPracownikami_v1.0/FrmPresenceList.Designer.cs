@@ -149,6 +149,8 @@
             this.dpFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dpFinish.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFinish.Location = new System.Drawing.Point(131, 66);
+            this.dpFinish.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
+            this.dpFinish.MinDate = new System.DateTime(2023, 1, 1, 0, 0, 0, 0);
             this.dpFinish.Name = "dpFinish";
             this.dpFinish.ShowUpDown = true;
             this.dpFinish.Size = new System.Drawing.Size(124, 26);
@@ -161,6 +163,8 @@
             this.dpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpStart.Location = new System.Drawing.Point(131, 35);
+            this.dpStart.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
+            this.dpStart.MinDate = new System.DateTime(2023, 1, 1, 0, 0, 0, 0);
             this.dpStart.Name = "dpStart";
             this.dpStart.ShowUpDown = true;
             this.dpStart.Size = new System.Drawing.Size(124, 26);
@@ -329,6 +333,7 @@
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Usuń";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -358,9 +363,11 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 171);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(864, 246);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // FrmPresenceList
             // 

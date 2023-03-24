@@ -38,16 +38,31 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if(details.PresenceID == 0)
+                MessageBox.Show("Wybierz obiekt do edytowania");
+            else
+            {
             FrmPresence frm = new FrmPresence();
-            this.Hide();
-            frm.ShowDialog();
-            this.Visible = true;
+                frm.isUpdate = true;
+                frm.details = details;
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;
+                FillAllData();
+                CleanFilters();
+
+            }
+            
         }
         PresenceDTO dto = new PresenceDTO();
         private bool combofull;
         void FillAllData()
         {
             dto = PresenceBLL.GetAll();
+            if (!UserStatic.isAdmin)
+            {
+               dto.Presences = dto.Presences.Where(x => x.EmployeeID == UserStatic.EmployeeID).ToList();
+            }
             dataGridView1.DataSource = dto.Presences;
             combofull = false;
             cmbDepartment.DataSource = dto.Departments;
@@ -74,10 +89,13 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             dataGridView1.Columns[7].Visible = false;
             dataGridView1.Columns[8].HeaderText = "Początek";
             dataGridView1.Columns[9].HeaderText = "Koniec";
-            dataGridView1.Columns[10].Visible = false;
-            dataGridView1.Columns[11].HeaderText = "Ilość godzin";
-            //dataGridView1.Columns[12].Visible = false;          
-                  
+            dataGridView1.Columns[10].HeaderText = "Ilość godzin";
+            dataGridView1.Columns[11].Visible = false;
+            dataGridView1.Columns[12].Visible = false;
+            if (!UserStatic.isAdmin)
+            {
+                pnForAdmin.Visible = false;
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -121,8 +139,33 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             cmbPosition.SelectedIndex = -1;
             combofull = true;
             rbStartDate.Checked = false;            
-            rbEndDate.Checked = false;
+            rbEndDate.Checked = false;           
             dataGridView1.DataSource = dto.Presences;
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Jesteś pewien?", "Warning", MessageBoxButtons.YesNo);
+            if(result == DialogResult.Yes)
+            {
+                PresenceBLL.DeletePresence(details.PresenceID);
+                MessageBox.Show("Usunięto");
+                FillAllData();
+                CleanFilters();
+            }
+        }
+
+        PresenceDetailDTO details = new PresenceDetailDTO();    
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            details.PresenceID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[12].Value);    
+            details.StartDate = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[8].Value);
+            details.EndDate = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[9].Value);
+            details.Explanation = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
+            details.UserNo =  Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
+            details.PresenceAmount = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[10].Value);
+
+
+
         }
     }
 }

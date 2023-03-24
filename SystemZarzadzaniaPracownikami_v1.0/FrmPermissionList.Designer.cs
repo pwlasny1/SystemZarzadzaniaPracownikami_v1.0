@@ -141,7 +141,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.txtExcel);
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Controls.Add(this.btnDelete);
             this.panel2.Controls.Add(this.btnUpdate);
@@ -157,7 +156,7 @@
             // txtExcel
             // 
             this.txtExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtExcel.Location = new System.Drawing.Point(733, 39);
+            this.txtExcel.Location = new System.Drawing.Point(339, 134);
             this.txtExcel.Name = "txtExcel";
             this.txtExcel.Size = new System.Drawing.Size(130, 28);
             this.txtExcel.TabIndex = 26;
@@ -328,6 +327,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.txtExcel);
             this.panel3.Controls.Add(this.dpEnd);
             this.panel3.Controls.Add(this.dpStart);
             this.panel3.Controls.Add(this.btnClear);

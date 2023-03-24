@@ -23,6 +23,21 @@ namespace DAL.DAO
 			}
         }
 
+        public static void DeletePresence(int presenceID)
+        {
+            try
+            {
+                Presence pr = db.Presence.First(x => x.ID == presenceID);
+                db.Presence.DeleteOnSubmit(pr);
+                db.SubmitChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static List<PresenceDetailDTO> GetPresences()
         {
             List<PresenceDetailDTO> presences= new List<PresenceDetailDTO>();
@@ -55,11 +70,32 @@ namespace DAL.DAO
                 dto.DepartmentID = item.departmentID;
                 dto.PositionID = item.positionID;
                 dto.Explanation = item.explanation;
+                dto.PresenceID = item.PresenceID;
                 presences.Add(dto);
 
             }
             return presences;
             
-        }   
+        }
+
+        public static void UpdatePresence(Presence presence)
+        {
+            try
+            {
+                Presence pr = db.Presence.First(x => x.ID == presence.ID);
+                pr.PresenceStartDate = presence.PresenceStartDate;
+                pr.PresenceEndDate = presence.PresenceEndDate;
+                pr.PresenceExplanation = presence.PresenceExplanation;
+                pr.PermissionDay = presence.PermissionDay;
+                db.SubmitChanges();
+               
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

@@ -16,6 +16,11 @@ namespace BLL
             PresenceDAO.AddPresence(presence);
         }
 
+        public static void DeletePresence(int presenceID)
+        {
+            PresenceDAO.DeletePresence(presenceID);
+        }
+
         public static PresenceDTO GetAll()
         {
             PresenceDTO dto = new PresenceDTO();    
@@ -23,6 +28,11 @@ namespace BLL
             dto.Positions= PositionDAO.GetPositions();
             dto.Presences = PresenceDAO.GetPresences();
             return dto;
+        }
+
+        public static void UpdatePresence(Presence presence)
+        {
+            PresenceDAO.UpdatePresence(presence);
         }
     }
 }

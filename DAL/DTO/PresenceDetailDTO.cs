@@ -18,7 +18,8 @@ namespace DAL.DTO
         public int PositionID { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public int PresenceAmount { get; set; }
+        public int PresenceAmount { get; set; }     
         public string Explanation { get; set; }
+        public int PresenceID { get; set; } 
     }
 }
