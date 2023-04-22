@@ -9,11 +9,11 @@ namespace DAL.DAO
 {
     public class PresenceDAO : EmployeeContext
     {
-        public static void AddPresence(Presence presence)
+        public static void AddPresence(Presences presences)
         {
 			try
 			{
-				db.Presence.InsertOnSubmit(presence);
+				db.Presences.InsertOnSubmit(presences);
 				db.SubmitChanges();
 			}
 			catch (Exception)
@@ -27,8 +27,8 @@ namespace DAL.DAO
         {
             try
             {
-                Presence pr = db.Presence.First(x => x.ID == presenceID);
-                db.Presence.DeleteOnSubmit(pr);
+                Presences pr = db.Presences.First(x => x.ID == presenceID);
+                db.Presences.DeleteOnSubmit(pr);
                 db.SubmitChanges();
             }
             catch (Exception)
@@ -41,21 +41,22 @@ namespace DAL.DAO
         public static List<PresenceDetailDTO> GetPresences()
         {
             List<PresenceDetailDTO> presences= new List<PresenceDetailDTO>();
-            var list = (from p in db.Presence
+            var list = (from p in db.Presences
                         join e in db.Employee on p.EmployeeID equals e.ID
                         select new
                         {
                             UserNo = e.UserNo,
                             name = e.Name,
                             Surname = e.Surname,
-                            startdate = p.PresenceStartDate, 
-                            endDate = p.PresenceEndDate,   
+                            startdate = p.PresenceStart, 
+                            endDate = p.PresenceEnd,   
                             employeeID = p.EmployeeID,
                             PresenceID = p.ID,
                             explanation = p.PresenceExplanation,
-                            amount = p.PermissionDay,
+                            amount = p.PresenceHours,
                             departmentID = e.DepartmentID,
-                            positionID = e.PositionID
+                            positionID = e.PositionID,
+                            presenceDay = p.PresenceDate
                         }).OrderBy(x=> x.startdate).ToList();
             foreach (var item in list)
             {
@@ -78,15 +79,15 @@ namespace DAL.DAO
             
         }
 
-        public static void UpdatePresence(Presence presence)
+        public static void UpdatePresence(Presences presences)
         {
             try
             {
-                Presence pr = db.Presence.First(x => x.ID == presence.ID);
-                pr.PresenceStartDate = presence.PresenceStartDate;
-                pr.PresenceEndDate = presence.PresenceEndDate;
-                pr.PresenceExplanation = presence.PresenceExplanation;
-                pr.PermissionDay = presence.PermissionDay;
+                Presences pr = db.Presences.First(x => x.ID == presences.ID);
+                pr.PresenceStart = presences.PresenceStart;
+                pr.PresenceEnd = presences.PresenceEnd;
+                pr.PresenceExplanation = presences.PresenceExplanation;
+                pr.PresenceHours = presences.PresenceHours;               
                 db.SubmitChanges();
                
 

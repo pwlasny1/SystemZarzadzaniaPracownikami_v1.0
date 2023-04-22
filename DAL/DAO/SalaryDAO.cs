@@ -43,12 +43,19 @@ namespace DAL.DAO
             return db.Months.ToList();
         }
 
+        public static List<ContractType> GetContractTypes()
+        {
+            return db.ContractType.ToList();
+        }
+
         public static List<SalaryDetailDTO> GetSalaries()
         {
             List<SalaryDetailDTO> salaryList = new List<SalaryDetailDTO>();
             var list = (from s in db.Salary
                         join e in db.Employee on s.EmployeeID equals e.ID
                         join m in db.Months on s.MonthID equals m.ID
+                        
+                     
                         select new
                         {
                             UserNo = e.UserNo,
@@ -61,7 +68,9 @@ namespace DAL.DAO
                             monthID = s.MonthID,
                             salaryID = s.ID,
                             departmentID = e.DepartmentID,
-                            positionID = e.PositionID
+                            positionID = e.PositionID,
+                            
+                            
                         }).OrderBy(x=> x.year).ToList();
 
             foreach ( var item in list ) {
@@ -80,6 +89,8 @@ namespace DAL.DAO
                 dto.DepartmentID = item.departmentID;
                 dto.PositionID = item.positionID;
                 dto.OldSalary = item.amount;
+        
+               
 
                 salaryList.Add(dto);
 
@@ -95,6 +106,7 @@ namespace DAL.DAO
                 salaries.Amount = salary.Amount;    
                 salaries.Year = salary.Year;    
                 salaries.MonthID = salary.MonthID; 
+                
                 db.SubmitChanges();
             }
             catch (Exception)

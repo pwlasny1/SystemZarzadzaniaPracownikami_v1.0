@@ -37,6 +37,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                     BLL.DepartmentBLL.AddDepartment(department);
                     MessageBox.Show("Departament dodany pomyślnie!");
                     txtDepartment.Clear();
+                    this.Close();
                 }
                 else
                 {

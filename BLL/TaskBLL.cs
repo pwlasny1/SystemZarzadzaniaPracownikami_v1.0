@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.DAO;
 using DAL;
+using Task = DAL.Task;
 
 namespace BLL
 {

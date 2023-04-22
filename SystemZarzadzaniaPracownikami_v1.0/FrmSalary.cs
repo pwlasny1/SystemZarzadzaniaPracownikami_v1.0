@@ -67,7 +67,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                 if (dto.Departments.Count > 0)
                     combofull = true;
             }
-
+           
             cbMonth.DataSource = dto.Months;
             cbMonth.DisplayMember = "MonthName";
             cbMonth.ValueMember = "ID";
@@ -127,6 +127,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                         salary.Year = Convert.ToInt32(txtYear.Text);
                         salary.MonthID = Convert.ToInt32(cbMonth.SelectedValue);
                         salary.Amount = Convert.ToInt32(txtSalary.Text);
+                        
                         
                         if(salary.Amount > details.OldSalary)
                         

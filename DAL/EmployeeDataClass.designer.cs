@@ -48,9 +48,6 @@ namespace DAL
     partial void InsertPresence(Presence instance);
     partial void UpdatePresence(Presence instance);
     partial void DeletePresence(Presence instance);
-    partial void InsertSalary(Salary instance);
-    partial void UpdateSalary(Salary instance);
-    partial void DeleteSalary(Salary instance);
     partial void InsertTask(Task instance);
     partial void UpdateTask(Task instance);
     partial void DeleteTask(Task instance);
@@ -63,6 +60,15 @@ namespace DAL
     partial void InsertPermissionState(PermissionState instance);
     partial void UpdatePermissionState(PermissionState instance);
     partial void DeletePermissionState(PermissionState instance);
+    partial void InsertPresences(Presences instance);
+    partial void UpdatePresences(Presences instance);
+    partial void DeletePresences(Presences instance);
+    partial void InsertSalary(Salary instance);
+    partial void UpdateSalary(Salary instance);
+    partial void DeleteSalary(Salary instance);
+    partial void InsertContractType(ContractType instance);
+    partial void UpdateContractType(ContractType instance);
+    partial void DeleteContractType(ContractType instance);
     #endregion
 		
 		public EmployeeDataClassDataContext() : 
@@ -143,14 +149,6 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<Salary> Salary
-		{
-			get
-			{
-				return this.GetTable<Salary>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Task> Task
 		{
 			get
@@ -180,6 +178,30 @@ namespace DAL
 			get
 			{
 				return this.GetTable<PermissionState>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Presences> Presences
+		{
+			get
+			{
+				return this.GetTable<Presences>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Salary> Salary
+		{
+			get
+			{
+				return this.GetTable<Salary>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ContractType> ContractType
+		{
+			get
+			{
+				return this.GetTable<ContractType>();
 			}
 		}
 	}
@@ -1084,164 +1106,6 @@ namespace DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Salary")]
-	public partial class Salary : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private int _EmployeeID;
-		
-		private int _Amount;
-		
-		private int _Year;
-		
-		private int _MonthID;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnEmployeeIDChanging(int value);
-    partial void OnEmployeeIDChanged();
-    partial void OnAmountChanging(int value);
-    partial void OnAmountChanged();
-    partial void OnYearChanging(int value);
-    partial void OnYearChanged();
-    partial void OnMonthIDChanging(int value);
-    partial void OnMonthIDChanged();
-    #endregion
-		
-		public Salary()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL")]
-		public int EmployeeID
-		{
-			get
-			{
-				return this._EmployeeID;
-			}
-			set
-			{
-				if ((this._EmployeeID != value))
-				{
-					this.OnEmployeeIDChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeID = value;
-					this.SendPropertyChanged("EmployeeID");
-					this.OnEmployeeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Int NOT NULL")]
-		public int Amount
-		{
-			get
-			{
-				return this._Amount;
-			}
-			set
-			{
-				if ((this._Amount != value))
-				{
-					this.OnAmountChanging(value);
-					this.SendPropertyChanging();
-					this._Amount = value;
-					this.SendPropertyChanged("Amount");
-					this.OnAmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Year", DbType="Int NOT NULL")]
-		public int Year
-		{
-			get
-			{
-				return this._Year;
-			}
-			set
-			{
-				if ((this._Year != value))
-				{
-					this.OnYearChanging(value);
-					this.SendPropertyChanging();
-					this._Year = value;
-					this.SendPropertyChanged("Year");
-					this.OnYearChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MonthID", DbType="Int NOT NULL")]
-		public int MonthID
-		{
-			get
-			{
-				return this._MonthID;
-			}
-			set
-			{
-				if ((this._MonthID != value))
-				{
-					this.OnMonthIDChanging(value);
-					this.SendPropertyChanging();
-					this._MonthID = value;
-					this.SendPropertyChanged("MonthID");
-					this.OnMonthIDChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Task")]
 	public partial class Task : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1801,6 +1665,480 @@ namespace DAL
 					this._StateName = value;
 					this.SendPropertyChanged("StateName");
 					this.OnStateNameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Presences")]
+	public partial class Presences : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _EmployeeID;
+		
+		private System.DateTime _PresenceDate;
+		
+		private string _PresenceExplanation;
+		
+		private int _PresenceHours;
+		
+		private System.DateTime _PresenceStart;
+		
+		private System.DateTime _PresenceEnd;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnEmployeeIDChanging(int value);
+    partial void OnEmployeeIDChanged();
+    partial void OnPresenceDateChanging(System.DateTime value);
+    partial void OnPresenceDateChanged();
+    partial void OnPresenceExplanationChanging(string value);
+    partial void OnPresenceExplanationChanged();
+    partial void OnPresenceHoursChanging(int value);
+    partial void OnPresenceHoursChanged();
+    partial void OnPresenceStartChanging(System.DateTime value);
+    partial void OnPresenceStartChanged();
+    partial void OnPresenceEndChanging(System.DateTime value);
+    partial void OnPresenceEndChanged();
+    #endregion
+		
+		public Presences()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL")]
+		public int EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PresenceDate", DbType="Date NOT NULL")]
+		public System.DateTime PresenceDate
+		{
+			get
+			{
+				return this._PresenceDate;
+			}
+			set
+			{
+				if ((this._PresenceDate != value))
+				{
+					this.OnPresenceDateChanging(value);
+					this.SendPropertyChanging();
+					this._PresenceDate = value;
+					this.SendPropertyChanged("PresenceDate");
+					this.OnPresenceDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PresenceExplanation", DbType="NVarChar(MAX)")]
+		public string PresenceExplanation
+		{
+			get
+			{
+				return this._PresenceExplanation;
+			}
+			set
+			{
+				if ((this._PresenceExplanation != value))
+				{
+					this.OnPresenceExplanationChanging(value);
+					this.SendPropertyChanging();
+					this._PresenceExplanation = value;
+					this.SendPropertyChanged("PresenceExplanation");
+					this.OnPresenceExplanationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PresenceHours", DbType="Int NOT NULL")]
+		public int PresenceHours
+		{
+			get
+			{
+				return this._PresenceHours;
+			}
+			set
+			{
+				if ((this._PresenceHours != value))
+				{
+					this.OnPresenceHoursChanging(value);
+					this.SendPropertyChanging();
+					this._PresenceHours = value;
+					this.SendPropertyChanged("PresenceHours");
+					this.OnPresenceHoursChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PresenceStart", DbType="DateTime NOT NULL")]
+		public System.DateTime PresenceStart
+		{
+			get
+			{
+				return this._PresenceStart;
+			}
+			set
+			{
+				if ((this._PresenceStart != value))
+				{
+					this.OnPresenceStartChanging(value);
+					this.SendPropertyChanging();
+					this._PresenceStart = value;
+					this.SendPropertyChanged("PresenceStart");
+					this.OnPresenceStartChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PresenceEnd", DbType="DateTime NOT NULL")]
+		public System.DateTime PresenceEnd
+		{
+			get
+			{
+				return this._PresenceEnd;
+			}
+			set
+			{
+				if ((this._PresenceEnd != value))
+				{
+					this.OnPresenceEndChanging(value);
+					this.SendPropertyChanging();
+					this._PresenceEnd = value;
+					this.SendPropertyChanged("PresenceEnd");
+					this.OnPresenceEndChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Salary")]
+	public partial class Salary : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _EmployeeID;
+		
+		private int _Amount;
+		
+		private int _Year;
+		
+		private int _MonthID;
+		
+		private System.Nullable<int> _ContractTypeID;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnEmployeeIDChanging(int value);
+    partial void OnEmployeeIDChanged();
+    partial void OnAmountChanging(int value);
+    partial void OnAmountChanged();
+    partial void OnYearChanging(int value);
+    partial void OnYearChanged();
+    partial void OnMonthIDChanging(int value);
+    partial void OnMonthIDChanged();
+    partial void OnContractTypeIDChanging(System.Nullable<int> value);
+    partial void OnContractTypeIDChanged();
+    #endregion
+		
+		public Salary()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL")]
+		public int EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Int NOT NULL")]
+		public int Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this.OnAmountChanging(value);
+					this.SendPropertyChanging();
+					this._Amount = value;
+					this.SendPropertyChanged("Amount");
+					this.OnAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Year", DbType="Int NOT NULL")]
+		public int Year
+		{
+			get
+			{
+				return this._Year;
+			}
+			set
+			{
+				if ((this._Year != value))
+				{
+					this.OnYearChanging(value);
+					this.SendPropertyChanging();
+					this._Year = value;
+					this.SendPropertyChanged("Year");
+					this.OnYearChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MonthID", DbType="Int NOT NULL")]
+		public int MonthID
+		{
+			get
+			{
+				return this._MonthID;
+			}
+			set
+			{
+				if ((this._MonthID != value))
+				{
+					this.OnMonthIDChanging(value);
+					this.SendPropertyChanging();
+					this._MonthID = value;
+					this.SendPropertyChanged("MonthID");
+					this.OnMonthIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContractTypeID", DbType="Int")]
+		public System.Nullable<int> ContractTypeID
+		{
+			get
+			{
+				return this._ContractTypeID;
+			}
+			set
+			{
+				if ((this._ContractTypeID != value))
+				{
+					this.OnContractTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._ContractTypeID = value;
+					this.SendPropertyChanged("ContractTypeID");
+					this.OnContractTypeIDChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ContractType")]
+	public partial class ContractType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _ContractType1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnContractType1Changing(string value);
+    partial void OnContractType1Changed();
+    #endregion
+		
+		public ContractType()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="ContractType", Storage="_ContractType1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ContractType1
+		{
+			get
+			{
+				return this._ContractType1;
+			}
+			set
+			{
+				if ((this._ContractType1 != value))
+				{
+					this.OnContractType1Changing(value);
+					this.SendPropertyChanging();
+					this._ContractType1 = value;
+					this.SendPropertyChanged("ContractType1");
+					this.OnContractType1Changed();
 				}
 			}
 		}

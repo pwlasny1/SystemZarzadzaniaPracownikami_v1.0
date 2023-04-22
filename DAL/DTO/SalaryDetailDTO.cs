@@ -22,5 +22,6 @@ namespace DAL.DTO
         public int SalaryAmount { get; set; }
         public int SalaryID { get; set; }
         public int OldSalary { get; set; }
+
     }
 }

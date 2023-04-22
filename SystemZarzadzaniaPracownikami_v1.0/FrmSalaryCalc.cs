@@ -45,16 +45,16 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
             if (rbFreeDay.Checked)
             {
-                // Obliczanie kwoty dodatkowej wypłaty za nadgodziny w dni wolne
+                
                 amount = salary / 160 * hours * 2;
             }
             else if (rbWorkDay.Checked)
             {
                 amount = (int)(salary / 160 * hours * 1.5);
-                // Obliczanie kwoty dodatkowej wypłaty za nadgodziny w dni robocze
+                
             }
 
-            // Wyświetlenie kwoty dodatkowej wypłaty
+            
             txtAmount.Text = amount.ToString();
         }
     }

@@ -118,8 +118,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             if (cmbDepartment.SelectedIndex != -1)
                 list = list.Where(x => x.DepartmentID == Convert.ToInt32(cmbDepartment.SelectedValue)).ToList();
             if (cmbPosition.SelectedIndex != -1)
-                list = list.Where(x => x.PositionID == (cmbPosition.SelectedItem as PositionDTO).ID).ToList();
-                //list = list.Where(x => x.PositionID == ((int)cmbPosition.SelectedValue)).ToList();
+                list = list.Where(x => x.PositionID == (cmbPosition.SelectedItem as PositionDTO).ID).ToList();           
             dataGridView1.DataSource= list;
         }
 

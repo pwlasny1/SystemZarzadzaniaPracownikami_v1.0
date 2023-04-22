@@ -44,59 +44,66 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 28);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(38, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 26);
+            this.label1.Size = new System.Drawing.Size(119, 40);
             this.label1.TabIndex = 0;
             this.label1.Text = "Wynagrodzenie\r\n miesięczne";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(51, 75);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(38, 117);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(93, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Ilość godzin";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(59, 229);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(38, 265);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 26);
+            this.label3.Size = new System.Drawing.Size(79, 40);
             this.label3.TabIndex = 0;
             this.label3.Text = "Kwota do \r\nwypłaty";
             // 
             // txtSalary
             // 
-            this.txtSalary.Location = new System.Drawing.Point(138, 28);
+            this.txtSalary.Location = new System.Drawing.Point(176, 56);
+            this.txtSalary.Multiline = true;
             this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(100, 20);
-            this.txtSalary.TabIndex = 1;
+            this.txtSalary.Size = new System.Drawing.Size(100, 30);
+            this.txtSalary.TabIndex = 0;
             // 
             // txtHours
             // 
-            this.txtHours.Location = new System.Drawing.Point(138, 68);
+            this.txtHours.Location = new System.Drawing.Point(176, 107);
+            this.txtHours.Multiline = true;
             this.txtHours.Name = "txtHours";
-            this.txtHours.Size = new System.Drawing.Size(100, 20);
+            this.txtHours.Size = new System.Drawing.Size(100, 30);
             this.txtHours.TabIndex = 1;
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(138, 235);
+            this.txtAmount.Location = new System.Drawing.Point(176, 275);
+            this.txtAmount.Multiline = true;
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.ReadOnly = true;
-            this.txtAmount.Size = new System.Drawing.Size(100, 20);
+            this.txtAmount.Size = new System.Drawing.Size(100, 30);
             this.txtAmount.TabIndex = 1;
             // 
             // rbWorkDay
             // 
             this.rbWorkDay.AutoSize = true;
-            this.rbWorkDay.Location = new System.Drawing.Point(146, 120);
+            this.rbWorkDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rbWorkDay.Location = new System.Drawing.Point(163, 163);
             this.rbWorkDay.Name = "rbWorkDay";
-            this.rbWorkDay.Size = new System.Drawing.Size(92, 17);
-            this.rbWorkDay.TabIndex = 2;
+            this.rbWorkDay.Size = new System.Drawing.Size(127, 24);
+            this.rbWorkDay.TabIndex = 3;
             this.rbWorkDay.TabStop = true;
             this.rbWorkDay.Text = "Dzień roboczy";
             this.rbWorkDay.UseVisualStyleBackColor = true;
@@ -104,19 +111,21 @@
             // rbFreeDay
             // 
             this.rbFreeDay.AutoSize = true;
-            this.rbFreeDay.Location = new System.Drawing.Point(54, 120);
+            this.rbFreeDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rbFreeDay.Location = new System.Drawing.Point(36, 163);
             this.rbFreeDay.Name = "rbFreeDay";
-            this.rbFreeDay.Size = new System.Drawing.Size(91, 17);
-            this.rbFreeDay.TabIndex = 3;
+            this.rbFreeDay.Size = new System.Drawing.Size(121, 24);
+            this.rbFreeDay.TabIndex = 2;
             this.rbFreeDay.TabStop = true;
             this.rbFreeDay.Text = "Wolne/święta";
             this.rbFreeDay.UseVisualStyleBackColor = true;
             // 
             // btnCalc
             // 
-            this.btnCalc.Location = new System.Drawing.Point(54, 164);
+            this.btnCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnCalc.Location = new System.Drawing.Point(72, 206);
             this.btnCalc.Name = "btnCalc";
-            this.btnCalc.Size = new System.Drawing.Size(184, 34);
+            this.btnCalc.Size = new System.Drawing.Size(184, 41);
             this.btnCalc.TabIndex = 4;
             this.btnCalc.Text = "Przelicz";
             this.btnCalc.UseVisualStyleBackColor = true;
@@ -124,9 +133,10 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(54, 285);
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnReset.Location = new System.Drawing.Point(42, 335);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 32);
+            this.btnReset.Size = new System.Drawing.Size(89, 41);
             this.btnReset.TabIndex = 5;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -134,9 +144,10 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(163, 285);
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnClose.Location = new System.Drawing.Point(201, 335);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 32);
+            this.btnClose.Size = new System.Drawing.Size(75, 41);
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "Zamknij";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -146,7 +157,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 366);
+            this.ClientSize = new System.Drawing.Size(354, 412);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnCalc);

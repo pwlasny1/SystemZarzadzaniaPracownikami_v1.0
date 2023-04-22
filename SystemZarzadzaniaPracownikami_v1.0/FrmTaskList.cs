@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DAL;
 using DAL.DTO;
 using BLL;
+using Task = DAL.Task;
 
 
 
@@ -110,6 +111,8 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             dataGridView1.Columns[12].Visible = false;
             dataGridView1.Columns[13].Visible = false;
             dataGridView1.Columns[14].Visible = false;
+            dataGridView1.Columns[15].Visible = false;
+
             if (!UserStatic.isAdmin)
             {
                 btnAdd.Enabled = false; 
@@ -190,7 +193,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             details.Title = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             details.Content = dataGridView1.Rows[e.RowIndex].Cells[13].Value.ToString();
             details.UserNo = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
-           // details.taskStateID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[14].Value);
+            details.taskStateID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[15].Value);
             details.TaskID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[11].Value);
             details.EmployeeID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[12].Value);
             details.TaskStartDate = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[4].Value);

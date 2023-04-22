@@ -61,6 +61,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                     MessageBox.Show("Stanowisko zostało dodane");
                     txtPosition.Clear();
                     cmbDepartment.SelectedIndex = -1;
+                    this.Close();
                 }
                 else
                 {

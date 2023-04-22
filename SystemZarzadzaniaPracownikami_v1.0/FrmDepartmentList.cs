@@ -59,8 +59,8 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             List<Department> departments= new List<Department>();
             departments = BLL.DepartmentBLL.GetDepartments();
             dataGridView1.DataSource= departments;
-            dataGridView1.Columns[0].HeaderText = "Department ID";
-            dataGridView1.Columns[1].HeaderText = "Department Name";
+            dataGridView1.Columns[0].HeaderText = "Numer departamentu";
+            dataGridView1.Columns[1].HeaderText = "Nazwa departamentu";
 
         }
 

@@ -77,7 +77,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                 cmbTaskState.DataSource = dto.TaskStates;
                 cmbTaskState.DisplayMember = "StateName";
                 cmbTaskState.ValueMember = "ID";
-                cmbTaskState.SelectedIndex = details.taskStateID;
+                cmbTaskState.SelectedValue = details.taskStateID;
 
             }
         }
@@ -147,7 +147,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                         update.ID = details.TaskID;
                         if(Convert.ToInt32(txtUserNo.Text) != details.UserNo)
                         
-                            update.EmployeeID= details.EmployeeID;
+                            update.EmployeeID = details.EmployeeID;
                         
                         else
                         

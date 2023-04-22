@@ -11,9 +11,9 @@ namespace BLL
 {
     public class PresenceBLL
     {
-        public static void AddPresence(Presence presence)
+        public static void AddPresence(Presences presences)
         {
-            PresenceDAO.AddPresence(presence);
+            PresenceDAO.AddPresence(presences);
         }
 
         public static void DeletePresence(int presenceID)
@@ -30,9 +30,9 @@ namespace BLL
             return dto;
         }
 
-        public static void UpdatePresence(Presence presence)
+        public static void UpdatePresence(Presences presences)
         {
-            PresenceDAO.UpdatePresence(presence);
+            PresenceDAO.UpdatePresence(presences);
         }
     }
 }

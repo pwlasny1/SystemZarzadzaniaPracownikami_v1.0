@@ -26,7 +26,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            if (!UserStatic.isAdmin)// może jako ustawienia konta?
+            if (!UserStatic.isAdmin)
             {
                 EmployeeDTO dto = EmployeeBLL.GetAll();
                 EmployeeDetailDTO details = dto.Employees.First(x => x.EmployeeID == UserStatic.EmployeeID);
@@ -100,9 +100,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
         {
             if(!UserStatic.isAdmin)
             {
-                /*btnDepartment.Visible = false;
-                btnPosition.Visible = false;
-                btnLogOut.Location = new Point("point of form control");*/
+                
 
             }
         }

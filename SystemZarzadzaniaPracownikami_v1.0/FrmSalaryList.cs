@@ -100,11 +100,12 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             dataGridView1.Columns[11].HeaderText = "Wynagrodzenie";
             dataGridView1.Columns[10].Visible = false;
             dataGridView1.Columns[12].Visible = false;
-            dataGridView1.Columns[13].Visible = false;
+            dataGridView1.Columns[13].Visible = false;              
             if (!UserStatic.isAdmin)
             {
                 btnUpdate.Hide();
                 btnDelete.Hide();
+                btnAdd.Hide();
                 pnForAdmin.Hide();
                 
             }
@@ -150,7 +151,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                     list = list.Where(x => x.SalaryAmount == Convert.ToInt32(txtSalary.Text)).ToList();
 
             }
-           // list = list.Where(x => x.PositionID == ((int)cmbPosition.SelectedValue)).ToList();
+           
             dataGridView1.DataSource = list;
         }
 

@@ -54,6 +54,8 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                 MessageBox.Show("Wybierz datę początku oraz końca urlopu");
             else if(Convert.ToInt32(txtDayAmount.Text) <= 0)
                 MessageBox.Show("Wybierz chociaż jeden dzień");
+            else if (Convert.ToInt32(txtDayAmount.Text) <= 0)
+                MessageBox.Show("Wybierz chociaż jeden dzień");
             else if(txtContent.Text.Trim() == "")
                 MessageBox.Show("Podaj opis");
             else
@@ -74,10 +76,11 @@ namespace SystemZarzadzaniaPracownikami_v1._0
                     dpFinish.Value = DateTime.Today;
                     txtDayAmount.Clear();
                     txtContent.Clear();
+                    this.Close();
                 }
               else if (isUpdate)
                 {
-                    DialogResult result = MessageBox.Show("Are you sure", "Warning", MessageBoxButtons.YesNo);
+                    DialogResult result = MessageBox.Show("Jesteś pewien?", "Warning", MessageBoxButtons.YesNo);
                     if(result == DialogResult.Yes)
                     {
                         permission.ID = details.PermissionID;

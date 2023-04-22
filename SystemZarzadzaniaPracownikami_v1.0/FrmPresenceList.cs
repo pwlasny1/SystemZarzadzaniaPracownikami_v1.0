@@ -92,6 +92,7 @@ namespace SystemZarzadzaniaPracownikami_v1._0
             dataGridView1.Columns[10].HeaderText = "Ilość godzin";
             dataGridView1.Columns[11].Visible = false;
             dataGridView1.Columns[12].Visible = false;
+            dataGridView1.Columns[13].Visible = false;
             if (!UserStatic.isAdmin)
             {
                 pnForAdmin.Visible = false;
